@@ -21,4 +21,16 @@ class AppFlavorGreenAssetImpl extends AppAsset {
   @override
   String imagesMainBottomIcon5Default =
       'assets/images/main_bottom_icon_5_default.svg';
+
+  @override
+  String imagesIconMuYinTitleMenu = "assets/images/icon_muyin_title_menu.png";
+
+  @override
+  String imagesIconSearch = "assets/images/icon_search.png";
+
+  @override
+  String get imagesIconVideoListShowTypeGrid => "assets/images/icon_video_list_show_type_grid.svg";
+
+  @override
+  String get imagesIconVideoListShowTypeList => "assets/images/icon_video_list_show_type_list.svg";
 }

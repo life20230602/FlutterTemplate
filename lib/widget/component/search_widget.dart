@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_se/utils/image_utils.dart';
+
+import '../../res/app_asset.dart';
 
 ///搜索
 class SearchWidget extends StatelessWidget {
@@ -7,24 +10,31 @@ class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 36,
+      height: kToolbarHeight,
       alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: const Color(0xFFE4E4E4),
-          borderRadius: BorderRadius.circular(12)),
-      child: const Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.search_rounded,
-            size: 18,
-            color: Color(0xFF78787c),
-          ),
-          Text(
-            "搜索",
-            style: TextStyle(fontSize: 16, color: Color(0xFF78787c)),
-          )
-        ],
+      child: Container(
+        height: 31,
+        alignment: Alignment.centerLeft,
+        decoration: BoxDecoration(
+          color: const Color(0xFF2A2C2B),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(width: 10,),
+            Expanded(child: Text(
+              "母子 妇女 换妻 孕妇",
+              style: TextStyle(fontSize: 14, color: Color(0xFFBDBDBD)),
+            )),
+            AppAsset.assets.imagesIconSearch.toAssetImageWidget(
+                width: 17,height: 16
+            ),
+            SizedBox(width: 8,),
+          ],
+        ),
       ),
     );
   }

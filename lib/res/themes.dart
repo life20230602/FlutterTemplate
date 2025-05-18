@@ -48,4 +48,10 @@ abstract class AppTheme {
   ///app 底部导航背景色
   Color get appBottomBarBgColor;
 
+  ///app 返回按钮颜色
+  Color get appBackButtonColor;
+
+  ///二级背景色
+  Color get secondBgColor;
+
 }

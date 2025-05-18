@@ -15,4 +15,12 @@ abstract class AppAsset {
   String get imagesMainBottomIcon4Default;
 
   String get imagesMainBottomIcon5Default;
+
+  String get imagesIconMuYinTitleMenu;
+
+  String get imagesIconSearch;
+
+  String get imagesIconVideoListShowTypeGrid;
+
+  String get imagesIconVideoListShowTypeList;
 }

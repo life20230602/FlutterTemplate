@@ -34,7 +34,7 @@ class AppGreenThemeImpl extends AppTheme {
   Color get appBackground => Colors.black;
 
   @override
-  Color get blackColor => const Color(0xFF2A2A2A);
+  Color get blackColor => Colors.black;
 
   @override
   Color get secondTextColor => const Color(0xFF78787C);
@@ -53,4 +53,10 @@ class AppGreenThemeImpl extends AppTheme {
 
   @override
   Color get appBottomBarBgColor => Colors.black;
+
+  @override
+  Color get appBackButtonColor => Colors.white;
+
+  @override
+  Color get secondBgColor => Color(0xFF232527);
 }

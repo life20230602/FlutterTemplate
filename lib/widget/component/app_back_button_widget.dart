@@ -12,19 +12,22 @@ class AppBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
+    return Padding(
+      padding: EdgeInsets.only(left: 10),
+      child: IconButton(
         onPressed: () {
           Navigator.maybePop(context);
         },
         icon: Row(
           children: [
-            const SizedBox(width: 14,),
             Icon(
               size: 20,
               Icons.arrow_back_ios,
-              color: color,
-            )
+              color: color ?? context.appTheme.appBackButtonColor,
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
