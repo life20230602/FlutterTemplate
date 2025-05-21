@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
+import 'package:flutter_se/page/common/fuli/fu_li_page.dart';
 import 'package:flutter_se/page/mu_yin/mu_yin_logic.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/utils/image_utils.dart';
 import 'package:flutter_se/widget/widget_utils.dart';
+import 'package:get/get.dart';
 
 import '../../widget/ticker_provider.dart';
 import 'category/mu_yin_category_page.dart';
@@ -30,9 +32,14 @@ class MuYinPage extends AppGetXBasePage<MuYinLogic> with SingleTickerProvider {
   @override
   List<Widget>? titleActions() {
     return [
-      AppAsset.assets.imagesIconMuYinTitleMenu.toAssetImageWidget(
-        width: 41,
-        height: 36,
+      GestureDetector(
+        onTap: () {
+          Get.to(() => FuLiPage());
+        },
+        child: AppAsset.assets.imagesIconMuYinTitleMenu.toAssetImageWidget(
+          width: 41,
+          height: 36,
+        ),
       ),
     ];
   }

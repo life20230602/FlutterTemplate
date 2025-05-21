@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
-import 'package:flutter_se/page/mine/mine_page.dart';
-import 'package:flutter_se/page/mu_yin/detail/mu_yin_category_detail_page.dart';
-import 'package:flutter_se/page/mu_yin/mu_yin_logic.dart';
-import 'package:flutter_se/widget/widget_utils.dart';
+import 'package:flutter_se/page/common/video/video_list_page.dart';
 import 'package:get/get.dart';
 
 import 'mu_yin_category_logic.dart';
@@ -44,7 +40,7 @@ class MuYinChildPage extends AppGetXBasePage<MuYinChildLogic> {
             popGesture: true,
             page:
                 () =>
-                    MuYinCategoryDetailPage(), // Placeholder, BottomPage can be added here
+                    VideoListPage(), // Placeholder, BottomPage can be added here
           ),
         );
       },

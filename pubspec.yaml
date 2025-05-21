@@ -87,13 +87,17 @@ dependencies:
 
   # permission_handler 权限管理，https://pub.dev/packages/permission_handler
   permission_handler: ^12.0.0+1
-  image_picker: ^1.1.2
   event_bus: ^2.0.0
-  widgets_to_image: ^1.0.0
+  widgets_to_image_plus: ^0.0.1
+  image_pickers: ^2.0.6
   image_gallery_saver_plus: ^4.0.1
   connectivity_plus: ^6.0.5
   freezed_annotation: ^2.4.4
   flutter_scankit: ^2.0.6
+
+  ## 视频播放器 https://pub.dev/packages/chewie
+  chewie: ^1.11.3
+  dotted_line: ^3.2.3
 
 dev_dependencies:
   flutter_test:

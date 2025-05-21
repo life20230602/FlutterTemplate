@@ -69,7 +69,6 @@ mixin DomainSelectionMixin {
             callback(data);
           }
         }
-
       }).onError((error, stacktrace) {
         errorCount--;
         if (errorCount <= 0 && !isCallback) {

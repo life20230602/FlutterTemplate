@@ -13,6 +13,10 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+    <string>We need permission to save photos and videos to your library for your convenience.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need permission to access your photo library to view and select your photos and videos.</string>
 	<string>flutter_se</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>

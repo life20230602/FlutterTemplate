@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
+import 'package:flutter_se/page/common/video/video_list_page.dart';
 import 'package:flutter_se/page/mu_yin/mu_yin_logic.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/utils/image_utils.dart';
@@ -10,67 +11,17 @@ import 'package:flutter_se/widget/component/search_widget.dart';
 import 'package:flutter_se/widget/widget_utils.dart';
 
 import '../../widget/ticker_provider.dart';
+import '../common/video/video_list_logic.dart';
 import '../mu_yin/category/mu_yin_category_page.dart';
 import 'zi_xiao_logic.dart';
 
 ///子笑
-class ZiXiaoPage extends AppGetXBasePage<ZiXiaoLogic>
-    with SingleTickerProvider {
+class ZiXiaoPage extends VideoListPage {
   ZiXiaoPage({super.key});
 
-  TabController? tabController;
-
-  final List<Widget> bodyList = [];
+  @override
+  VideoListLogic createController() => ZiXiaoLogic();
 
   @override
-  bool isWidgetMode() => true;
-
-  @override
-  bool showLoadingPage() => false;
-
-  @override
-  ZiXiaoLogic createController() => ZiXiaoLogic();
-
-  @override
-  Widget buildChild(BuildContext context) {
-    tabController = tabController ?? TabController(length: 2, vsync: this);
-    return SafeArea(
-      child: Column(
-        children: [
-          _buildTop(),
-          Expanded(
-            child: tabBarController(
-              tabController: tabController!,
-              tabs: _buildTab(),
-              tabItems: _body(),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  List<Widget> _body() {
-    if (bodyList.isNotEmpty) return bodyList;
-    bodyList.add(Text("data"));
-    bodyList.add(Text("2"));
-    return bodyList;
-  }
-
-  List<Widget> _buildTab() {
-    final widgets = <Widget>[];
-    widgets.add(Tab(child: Text("千万特权", style: TextStyle(fontSize: 14))));
-    widgets.add(Tab(child: Text("会员特权", style: TextStyle(fontSize: 14))));
-    return widgets;
-  }
-
-  Widget _buildTop() {
-    return Row(
-      children: [
-        const SizedBox(width: 20,),
-        Expanded(child: SearchWidget()),
-        AppAsset.assets.imagesIconMuYinTitleMenu.toAssetImageWidget(),
-      ],
-    );
-  }
+  bool showBack() => false;
 }

@@ -6,18 +6,18 @@ import 'package:flutter_se/utils/image_utils.dart';
 import 'package:flutter_se/widget/app_divider_widget.dart';
 
 import '../../../widget/ticker_provider.dart';
-import 'mu_yin_type_logic.dart';
+import 'video_category_logic.dart';
 import 'widget/video_tag_list_widget.dart';
 
-/// 母淫-分类-详情- 分类
-class MuYinTypePage extends AppGetXBaseRefreshPage<MuYinTypeLogic>
+/// 视频列表分类
+class VideoCategoryPage extends AppGetXBaseRefreshPage<VideoCategoryLogic>
     with SingleTickerProvider {
-  MuYinTypePage({super.key});
+  VideoCategoryPage({super.key});
 
   TabController? _tabController;
 
   @override
-  createController() => MuYinTypeLogic();
+  createController() => VideoCategoryLogic();
 
   @override
   bool isWidgetMode() => true;

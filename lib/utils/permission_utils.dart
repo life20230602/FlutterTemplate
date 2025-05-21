@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_se/res/app_theme.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -28,17 +29,23 @@ class PermissionUtils {
           context: Get.context!,
           builder: (context) {
             return CupertinoAlertDialog(
-              title: Text(title),
+              title: Text(title,style: TextStyle(
+                fontSize: 16
+              ),),
               content: Text(content),
               actions: <Widget>[
                 CupertinoDialogAction(
-                  child: const Text("取消"),
+                  child:  Text("取消",style: TextStyle(
+                      fontSize: 15,color: Color(0xffA09F9F)
+                  )),
                   onPressed: () {
                     Navigator.pop(context);
                   },
                 ),
                 CupertinoDialogAction(
-                  child: const Text("确定"),
+                  child: Text("确定",style: TextStyle(
+                    fontSize: 15,color: context.appTheme.primary
+                  ),),
                   onPressed: () {
                     Navigator.pop(context);
                     // 打开手机上该app权限的页面

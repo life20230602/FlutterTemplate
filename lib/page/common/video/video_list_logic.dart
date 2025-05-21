@@ -1,7 +1,7 @@
 import 'package:flutter_se/base/logic/app_base_logic.dart';
 
-///母淫-分类-详情
-class MuYinCategoryDetailLogic extends AppGetXBaseLogic {
+///视频列表
+class VideoListLogic extends AppGetXBaseLogic {
   @override
   void onLoad() {}
 }

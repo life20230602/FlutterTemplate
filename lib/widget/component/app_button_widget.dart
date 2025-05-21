@@ -7,14 +7,14 @@ class AppButtonWidget extends StatelessWidget {
   const AppButtonWidget({
     super.key,
     this.onTap,
-    this.radius = 8,
-    this.width = double.infinity,
+    this.radius = 50,
+    this.width,
     required this.text,
-    this.textSize = 16,
+    this.textSize = 14,
     required this.height,
     this.textColor,
-    this.backgroundPressedColor,
-    this.backgroundColor,
+    this.padding,
+    this.gradient,
   });
 
   final VoidCallback? onTap;
@@ -22,37 +22,40 @@ class AppButtonWidget extends StatelessWidget {
   final String text;
   final double? textSize;
   final double height;
-  final double width;
+  final double? width;
   final Color? textColor;
-  final Color? backgroundPressedColor;
-  final Color? backgroundColor;
+  final EdgeInsetsGeometry? padding;
+  final List<Color>? gradient;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
       width: width,
-      child: ElevatedButton(
-        onPressed: () {
+      child: GestureDetector(
+        onTap: () {
           if (onTap != null) {
             onTap!();
           }
         },
-        style: ButtonStyle(
-          padding: WidgetStatePropertyAll(EdgeInsets.zero),
-          elevation: const WidgetStatePropertyAll(0),
-          shape: MaterialStateProperty.all(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(radius!))),
-          backgroundColor: MaterialStateProperty.all(
-              backgroundColor ?? context.appTheme.appButtonBackgroundColor),
-          overlayColor: MaterialStateProperty.all(backgroundPressedColor ??
-              context.appTheme.appButtonBackgroundPressedColor),
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
+        child: Container(
+          padding: padding,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(radius ?? 50),
+            gradient: LinearGradient(
+              colors: gradient ?? [Color(0xFF2FCCF7), Color(0xFF00DF39)],
+            ),
+          ),
+          child: Text(
+            text,
+            strutStyle: StrutStyle(forceStrutHeight: true),
+            style: TextStyle(
               color: textColor ?? context.appTheme.appButtonTextColor,
-              fontSize: textSize),
+              fontSize: textSize,
+              fontWeight: FontWeight.bold
+            ),
+          ),
         ),
       ),
     );

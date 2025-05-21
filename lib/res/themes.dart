@@ -39,9 +39,6 @@ abstract class AppTheme {
   ///分割线颜色
   Color get dividerColor;
 
-  ///返回按钮颜色
-  Color get backColor;
-
   ///红色
   Color get appRed;
 

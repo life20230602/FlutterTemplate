@@ -46,7 +46,14 @@ mixin BasePage on StatelessWidget {
       key: Key(hashCode.toString()),
       child:
           isWidgetMode()
-              ? Container(color: backgroundColor(), child: _buildChild(context))
+              ? SafeArea(
+                top: enableTopSafeArea(),
+                bottom: enableBottomSafeArea(),
+                child: Container(
+                  color: backgroundColor(),
+                  child: _buildChild(context),
+                ),
+              )
               : _bodyScaffold(),
       onVisibilityChanged: (info) {
         if (info.visibleFraction == 1.0) {
@@ -153,7 +160,7 @@ mixin BasePage on StatelessWidget {
 
   /// 返回按钮的颜色
   Color? backColor() {
-    return context.appTheme.backColor;
+    return context.appTheme.appBackButtonColor;
   }
 
   /// 右边按钮或控件
@@ -173,7 +180,11 @@ mixin BasePage on StatelessWidget {
 
   /// 构建标题文本
   Widget buildTitle() {
-    return Text(title(), style: titleTextStyle());
+    return Text(
+      title(),
+      style: titleTextStyle(),
+      strutStyle: StrutStyle(forceStrutHeight: true),
+    );
   }
 
   /// 构建标题
@@ -187,6 +198,7 @@ mixin BasePage on StatelessWidget {
       titleSpacing: showBack() ? 0 : null,
       leadingWidth: backWidth(),
       leading: showBack() ? buildBack() : null,
+      actionsPadding: EdgeInsets.only(right: 18),
       actions: titleActions(),
       title: buildTitle(),
     );
