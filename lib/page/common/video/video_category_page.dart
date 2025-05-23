@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_se/base/page/app_base_refresh_page.dart';
+import 'package:flutter_se/page/common/video/video_item_logic_mixin.dart';
+import 'package:flutter_se/page/common/video/video_item_mixin.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/utils/image_utils.dart';
@@ -11,7 +13,7 @@ import 'widget/video_tag_list_widget.dart';
 
 /// 视频列表分类
 class VideoCategoryPage extends AppGetXBaseRefreshPage<VideoCategoryLogic>
-    with SingleTickerProvider {
+    with SingleTickerProvider ,VideoItemMixin{
   VideoCategoryPage({super.key});
 
   TabController? _tabController;
@@ -39,6 +41,7 @@ class VideoCategoryPage extends AppGetXBaseRefreshPage<VideoCategoryLogic>
         SliverToBoxAdapter(child: _buildBanner()),
         SliverToBoxAdapter(child: _buildVideoTag()),
         SliverToBoxAdapter(child: _buildSortTitle()),
+        buildSliverMasonryList(),
       ],
     );
   }
@@ -118,4 +121,7 @@ class VideoCategoryPage extends AppGetXBaseRefreshPage<VideoCategoryLogic>
     ];
     return widgets;
   }
+
+  @override
+  VideoItemLogicMixin getVideoListController() => logic;
 }

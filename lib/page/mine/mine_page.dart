@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
 import 'package:flutter_se/page/mine/entity/menu_entity.dart';
+import 'package:flutter_se/page/mine/msg/msg_page.dart';
+import 'package:flutter_se/page/mine/setting/setting_page.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/utils/image_utils.dart';
@@ -32,7 +34,12 @@ class MinePage extends AppGetXBasePage<MineLogic> {
             children: [
               _buildTopOperatorWidget(),
               const SizedBox(height: 10),
-              _buildUserInfo(),
+              GestureDetector(
+                onTap: () {
+                  Get.to(SettingPage());
+                },
+                child: _buildUserInfo(),
+              ),
               const SizedBox(height: 20),
               _buildBanner(),
               const SizedBox(height: 15),
@@ -224,9 +231,21 @@ class MinePage extends AppGetXBasePage<MineLogic> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        AppAsset.assets.imagesIconNotification.toAssetImageWidget(size: 23),
+        GestureDetector(
+          onTap: () {
+            Get.to(MsgPage());
+          },
+          child: AppAsset.assets.imagesIconNotification.toAssetImageWidget(
+            size: 23,
+          ),
+        ),
         const SizedBox(width: 15),
-        AppAsset.assets.imagesIconSetting.toAssetImageWidget(size: 23),
+        GestureDetector(
+          child: AppAsset.assets.imagesIconSetting.toAssetImageWidget(size: 23),
+          onTap: () {
+            Get.to(SettingPage());
+          },
+        ),
       ],
     );
   }
@@ -236,11 +255,13 @@ class MinePage extends AppGetXBasePage<MineLogic> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(child: _buildIconMenuItem(
-          AppAsset.assets.imagesIconMineAmount,
-          "金币充值",
-          "8568",
-        )),
+        Expanded(
+          child: _buildIconMenuItem(
+            AppAsset.assets.imagesIconMineAmount,
+            "金币充值",
+            "8568",
+          ),
+        ),
         const SizedBox(width: 10),
         Expanded(
           child: _buildIconMenuItem(
@@ -252,7 +273,7 @@ class MinePage extends AppGetXBasePage<MineLogic> {
         const SizedBox(width: 10),
         Expanded(
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               Get.to(InvitePage());
             },
             child: _buildIconMenuItem(

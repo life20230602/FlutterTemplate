@@ -81,4 +81,50 @@ class AppFlavorGreenAssetImpl extends AppAsset {
 
   @override
   String get imagesIconMineShare => "assets/images/icon_mine_share.png";
+
+  @override
+  String get imagesIconMsgCustomer => "assets/images/icon_msg_customer.png";
+
+  @override
+  String get imagesIconMsgInteractive =>
+      "assets/images/icon_msg_interactive.png";
+
+  @override
+  String get imagesIconMsgSystem => "assets/images/icon_msg_system.png";
+
+  @override
+  String get imagesIconTakePhoto => "assets/images/icon_take_photo.svg";
+
+  @override
+  String get imagesIconEdit => "assets/images/icon_edit.svg";
+
+  @override
+  String get imagesIconTrash => "assets/images/icon_trash.svg";
+
+  @override
+  String get imagesIconClose => "assets/images/icon_close.svg";
+
+  @override
+  String get imagesIconMineAccountCredentials => "assets/images/icon_mine_account_credentials.png";
+
+  @override
+  String get imagesIconMineAi => "assets/images/icon_mine_ai.png";
+
+  @override
+  String get imagesIconMineApps => "assets/images/icon_mine_apps.png";
+
+  @override
+  String get imagesIconMineBusiness => "assets/images/icon_mine_business.png";
+
+  @override
+  String get imagesIconMineGroup => "assets/images/icon_mine_group.png";
+
+  @override
+  String get imagesIconMineInputInvite => "assets/images/icon_mine_input_invite.png";
+
+  @override
+  String get imagesIconMineOriginalEntry => "assets/images/icon_mine_original_entry.png";
+
+  @override
+  String get imagesIconMineQuestion => "assets/images/icon_mine_question.png";
 }

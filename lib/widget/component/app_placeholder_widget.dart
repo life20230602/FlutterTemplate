@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_se/res/app_asset.dart';
 import 'package:get/get.dart';
 
 import 'app_asset_image_widget.dart';
@@ -13,14 +14,11 @@ class AppPlaceHolderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return AppAssetImageWidget(
-    //   width: width,
-    //   height: height,
-    //   imageUrl: Assets.imagesIconPlaceholder,
-    // );
-    return CircularProgressIndicator(
-      strokeWidth: 2,
-      color: context.theme.primaryColor,
+    return AppAssetImageWidget(
+      width: width,
+      height: height,
+      fit: BoxFit.fill,
+      imageUrl: AppAsset.assets.imagesIconMineShare,
     );
   }
 }

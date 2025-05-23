@@ -1,3 +1,4 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_se/widget/player/video_controls.dart';
@@ -5,10 +6,6 @@ import 'package:video_player_platform_interface/video_player_platform_interface.
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
-import '../../chewie/center_play_button.dart';
-import '../../chewie/chewie_player.dart';
-import '../../chewie/chewie_progress_colors.dart';
 
 ///播放完成回调
 typedef OnPlayCompleted = void Function();
@@ -137,7 +134,8 @@ class AppPlayerState extends State<AppPlayer> {
       disposePlayer();
     }
     _controller = VideoPlayerController.networkUrl(Uri.parse(widget.url),
-        videoPlayerOptions: VideoPlayerOptions(webOptions: VideoPlayerWebOptions(fit: widget.fill! ? Fit.fitFill : null)));
+        videoPlayerOptions: VideoPlayerOptions(webOptions:
+        VideoPlayerWebOptions(fit: widget.fill! ? Fit.fitFill : null)));
     widget.playerController?.init(_controller);
     await _controller?.initialize();
     if (_controller != null) {

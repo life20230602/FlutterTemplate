@@ -17,7 +17,7 @@ class LauncherLogic extends AppGetXBaseLogic {
   final menuListObs = <NavigationItem>[].obs;
 
   //为了实现母淫菜单页面内部跳转，单独管理路由
-  final GlobalKey<NavigatorState> _muYinNavigatorKey = GlobalKey();
+  final GlobalKey<NavigatorState> muYinNavigatorKey = GlobalKey();
 
   @override
   void onLoad() {
@@ -36,13 +36,13 @@ class LauncherLogic extends AppGetXBaseLogic {
         activeImage: AppAsset.assets.imagesMainBottomIcon1Default,
         activeColor: Get.context!.appTheme.primary,
         body: Navigator(
-          key: _muYinNavigatorKey,
+          key: muYinNavigatorKey,
           onGenerateRoute: (settings) {
             return GetPageRoute(
               transition: Transition.rightToLeft,
               popGesture: true,
               settings: settings,
-              page: ()=>MuYinPage(muYinNavigatorKey: _muYinNavigatorKey,), // Placeholder, BottomPage can be added here
+              page: ()=>MuYinPage(muYinNavigatorKey: muYinNavigatorKey,), // Placeholder, BottomPage can be added here
             );
           },
         ),

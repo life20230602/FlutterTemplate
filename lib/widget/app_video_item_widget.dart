@@ -199,7 +199,7 @@ class _PermissionVipWidget extends _PermissionWidget {
 
   @override
   List<Color> colors(BuildContext context) {
-    return [Colors.amber];
+    return context.appTheme.videoPermissionVipBgColor;
   }
 }
 
@@ -232,7 +232,7 @@ class _PermissionCoinWidget extends _PermissionWidget {
 
   @override
   List<Color> colors(BuildContext context) {
-    return [Colors.black];
+    return context.appTheme.videoPermissionCoinBgColor;
   }
 }
 
@@ -242,7 +242,7 @@ class _PermissionFreeWidget extends _PermissionWidget {
 
   @override
   List<Color> colors(BuildContext context) {
-    return [Colors.black];
+    return context.appTheme.videoPermissionFreeBgColor;
   }
 
   @override

@@ -56,4 +56,32 @@ class AppGreenThemeImpl extends AppTheme {
 
   @override
   Color get secondBgColor => Color(0xFF232527);
+
+  @override
+  List<Color> get videoPermissionCoinBgColor => [
+    const Color(0xFFFFC85C),
+    const Color(0xFFFF4452),
+  ];
+
+  @override
+  Color get videoPermissionCoinTextColor => Colors.white;
+
+  @override
+  List<Color> get videoPermissionFreeBgColor => [
+    const Color(0xFFE2BE66),
+    const Color(0xFFF7EDA5),
+    const Color(0xFFE2BE66),
+  ];
+
+  @override
+  Color get videoPermissionFreeTextColor => primary;
+
+  @override
+  List<Color> get videoPermissionVipBgColor => [
+    const Color(0xFFFF68F9),
+    const Color(0xFF5D3CDD),
+  ];
+
+  @override
+  Color get videoPermissionVipTextColor => Colors.white;
 }

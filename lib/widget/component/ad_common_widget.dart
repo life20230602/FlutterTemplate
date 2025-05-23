@@ -15,10 +15,10 @@ class AdBannerLogic extends AppGetXBaseLogic {
 
 ///广告轮播图组件
 class AdBannerWidget extends AppGetXBasePage<AdBannerLogic> {
-  AdBannerWidget({this.onTap, this.adList, this.adHeight = 165.0, super.key});
+  AdBannerWidget({this.onTap, this.adList, this.adHeight = AD_SIZE_LARGE, super.key});
 
-  static double AD_SIZE_LARGE = 165;
-  static double AD_SIZE_SMALL = 120;
+  static const double AD_SIZE_LARGE = 150;
+  static const double AD_SIZE_SMALL = 75;
 
   GestureTapCallback? onTap;
   List<AdInfoBean>? adList;

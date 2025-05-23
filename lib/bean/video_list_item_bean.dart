@@ -74,8 +74,8 @@ class VideoListElement {
 
   factory VideoListElement.fromJson(Map<String, dynamic> json) => VideoListElement(
         id: json["id"],
-        salePrice: json["sale_price"] ?? "",
-        permissionType: json["permission_type"] ?? "",
+        salePrice: json["sale_price"] ?? "1",
+        permissionType: json["permission_type"] ?? "1",
         desc: json["desc"] ?? "",
         title: json["title"] ?? "",
         horizontalCover: json["horizontal_cover"] ?? "",
@@ -92,8 +92,8 @@ class VideoListElement {
         isCollect: json["is_collect"] ?? false,
         isUpvote: json["is_upvote"] ?? false,
         isFocus: json["is_focus"] ?? false,
-        jumpUri: json["jump_uri"],
-        jumpType: json["jump_type"],
+        jumpUri: json["jump_uri"] ?? "",
+        jumpType: json["jump_type"] ?? 1,
         permissions: json["permissions"] ?? false,
         tags: json["tags"] == null ? [] : List<VideoTag>.from(json["tags"]!.map((x) => VideoTag.fromJson(x))),
       );

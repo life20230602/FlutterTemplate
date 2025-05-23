@@ -28,9 +28,18 @@ class AppBottomSheetContainerWidget extends StatelessWidget {
 
 /// 统一弹窗容器=> 中间弹出dialog
 class AppDialogContainerWidget extends StatelessWidget {
-  const AppDialogContainerWidget({super.key, required this.child});
+  const AppDialogContainerWidget({
+    super.key,
+    required this.child,
+    this.bottomChild,
+    this.backgroundColor = Colors.black,
+    this.backgroundRadius = 10,
+  });
 
   final Widget child;
+  final Widget? bottomChild;
+  final Color backgroundColor;
+  final double backgroundRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +62,12 @@ class AppDialogContainerWidget extends StatelessWidget {
                   maxWidth: context.defaultDialogWidth,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8),
+                  color: backgroundColor,
+                  borderRadius: BorderRadius.circular(backgroundRadius),
                 ),
                 child: child,
               ),
+              if (bottomChild != null) bottomChild!,
             ],
           ),
         ],

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
 import 'package:flutter_se/page/launcher/launcher_logic.dart';
 import 'package:flutter_se/page/launcher/navigation_listener.dart';
@@ -24,9 +25,9 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
 
   @override
   Widget? buildBottomNavigationBar() {
-    return Obx((){
+    return Obx(() {
       var menuListObs = logic.menuListObs;
-      if(menuListObs.isEmpty){
+      if (menuListObs.isEmpty) {
         return const SizedBox.shrink();
       }
       if (kIsWeb || Platform.isAndroid) {
@@ -41,6 +42,20 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
   }
 
   @override
+  Function()? onBackListener() {
+    return () {
+      //第一个模块有内嵌路由管理，不是统一的路由管理
+      if(_currentIndex.value == 0){
+        if (Navigator.canPop(logic.muYinNavigatorKey.currentContext!)) {
+          Navigator.pop(logic.muYinNavigatorKey.currentContext!);
+          return;
+        }
+      }
+      SystemNavigator.pop();
+    };
+  }
+
+  @override
   bool enableTopSafeArea() {
     return false;
   }
@@ -48,12 +63,14 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
   Widget _buildBottomBarWidget() {
     return Theme(
       data: ThemeData(
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-              elevation: 0,
-              enableFeedback: false),
-          brightness: Brightness.dark,
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          elevation: 0,
+          enableFeedback: false,
+        ),
+        brightness: Brightness.dark,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+      ),
       child: BottomNavigationBar(
         // 导航栏
         items: _items(),
@@ -65,10 +82,12 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
         },
         selectedItemColor: context.appTheme.primary,
         selectedFontSize: 13,
-        selectedLabelStyle:
-            TextStyle(fontFamily: context.textTheme.labelSmall?.fontFamily),
-        unselectedLabelStyle:
-            TextStyle(fontFamily: context.textTheme.labelSmall?.fontFamily),
+        selectedLabelStyle: TextStyle(
+          fontFamily: context.textTheme.labelSmall?.fontFamily,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontFamily: context.textTheme.labelSmall?.fontFamily,
+        ),
         unselectedFontSize: 13,
         unselectedItemColor: context.appTheme.appGrey,
         type: BottomNavigationBarType.fixed, // 这个要设置，不然默认颜色 出不来
@@ -84,20 +103,23 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
   @override
   Widget buildChild(BuildContext context) {
     var list = logic.menuListObs.map((element) => element.body!).toList();
-    return Obx(() => IndexedStack(
-          index: _currentIndex.value,
-          children: list,
-        ));
+    return Obx(() => IndexedStack(index: _currentIndex.value, children: list));
   }
 
   /// 导航栏
   List<BottomNavigationBarItem> _items() {
     final items = <BottomNavigationBarItem>[];
     for (var element in logic.menuListObs) {
-      items.add(BottomNavigationBarItem(
-          icon: _buildIcon(element.defaultImage.toString(),null),
-          activeIcon: _buildIcon(element.activeImage.toString(),element.activeColor),
-          label: element.text));
+      items.add(
+        BottomNavigationBarItem(
+          icon: _buildIcon(element.defaultImage.toString(), null),
+          activeIcon: _buildIcon(
+            element.activeImage.toString(),
+            element.activeColor,
+          ),
+          label: element.text,
+        ),
+      );
     }
     return items;
   }
@@ -107,7 +129,7 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
     return LauncherLogic();
   }
 
-  Widget _buildIcon(String image,Color? color) {
+  Widget _buildIcon(String image, Color? color) {
     return Container(
       width: 35,
       height: 35,

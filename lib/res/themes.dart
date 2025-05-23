@@ -51,4 +51,19 @@ abstract class AppTheme {
   ///二级背景色
   Color get secondBgColor;
 
+  //视频免费权限
+  List<Color> get videoPermissionFreeBgColor;
+
+  Color get videoPermissionFreeTextColor;
+
+  //视频VIP权限
+  List<Color> get videoPermissionVipBgColor;
+
+  Color get videoPermissionVipTextColor;
+
+  //视频金币权限
+  List<Color> get videoPermissionCoinBgColor;
+
+  Color get videoPermissionCoinTextColor;
+
 }

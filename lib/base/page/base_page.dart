@@ -69,7 +69,7 @@ mixin BasePage on StatelessWidget {
   Widget _bodyScaffold() {
     final backListener = onBackListener();
     return PopScope(
-      onPopInvoked: (didPop) {
+      onPopInvokedWithResult: (didPop,result){
         if (didPop) {
           return;
         }

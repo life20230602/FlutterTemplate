@@ -49,7 +49,6 @@ class AppButtonWidget extends StatelessWidget {
           ),
           child: Text(
             text,
-            strutStyle: StrutStyle(forceStrutHeight: true),
             style: TextStyle(
               color: textColor ?? context.appTheme.appButtonTextColor,
               fontSize: textSize,

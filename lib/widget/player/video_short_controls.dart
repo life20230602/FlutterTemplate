@@ -1,13 +1,11 @@
 import 'dart:async';
 
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_se/widget/player/short_video_loading_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../chewie/chewie.dart';
-import '../../chewie/notifiers/player_notifier.dart';
-import '../../chewie/progress_bar.dart';
 
 ///短视频控制器
 class AppShortVideoControls extends StatefulWidget {

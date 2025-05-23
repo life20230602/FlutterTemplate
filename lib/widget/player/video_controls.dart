@@ -1,19 +1,13 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:chewie/chewie.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../chewie/animated_play_pause.dart';
-import '../../chewie/chewie.dart';
-import '../../chewie/helpers/utils.dart';
-import '../../chewie/material/widgets/options_dialog.dart';
-import '../../chewie/notifiers/player_notifier.dart';
-import '../../chewie/progress_bar.dart';
-import '../../res/app_asset.dart';
 
 class AppVideoControls extends StatefulWidget {
   const AppVideoControls(
