@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_se/res/style.dart';
+import 'package:flutter_se/widget/no_balance_dialog.dart';
+import 'package:flutter_se/widget/vip_video_line_dialog.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
@@ -40,5 +42,15 @@ class AppDialogUtils {
 
   static void showBottomSheet(Widget widget){
     Get.bottomSheet(widget);
+  }
+
+  ///余额不足弹窗
+  static void showNoBalanceDialog(){
+    showDialog(NoBalanceDialog());
+  }
+
+  ///vip 线路弹窗
+  static void showVipVideoLineDialog(){
+    showDialog(VipVideoLineDialog());
   }
 }

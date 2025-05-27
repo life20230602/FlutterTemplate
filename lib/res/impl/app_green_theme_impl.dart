@@ -11,6 +11,8 @@ class AppGreenThemeImpl extends AppTheme {
 
   @override
   Color get primary => const Color(0xFF00D542);
+  @override
+  Color get secondPrimary => const Color(0xFF00DF39);
 
   @override
   Color get titleTextColor => Colors.white;
@@ -59,12 +61,12 @@ class AppGreenThemeImpl extends AppTheme {
 
   @override
   List<Color> get videoPermissionCoinBgColor => [
-    const Color(0xFFFFC85C),
-    const Color(0xFFFF4452),
+    const Color(0xFFFF5208),
+    const Color(0xFFF2A21D),
   ];
 
   @override
-  Color get videoPermissionCoinTextColor => Colors.white;
+  Color get videoPermissionCoinTextColor => Colors.black;
 
   @override
   List<Color> get videoPermissionFreeBgColor => [
@@ -74,14 +76,24 @@ class AppGreenThemeImpl extends AppTheme {
   ];
 
   @override
-  Color get videoPermissionFreeTextColor => primary;
+  Color get videoPermissionFreeTextColor => Colors.black;
 
   @override
   List<Color> get videoPermissionVipBgColor => [
-    const Color(0xFFFF68F9),
-    const Color(0xFF5D3CDD),
+    const Color(0xFFFFE7C3),
+    const Color(0xFFEFB96F),
   ];
 
   @override
-  Color get videoPermissionVipTextColor => Colors.white;
+  Color get videoPermissionVipTextColor => Colors.black;
+
+
+  @override
+  Color get dialogBgColor => secondBgColor;
+
+  @override
+  Color get dialogTextColor => Colors.white;
+
+  @override
+  Color get dialogSecondColor => const Color(0xFF1B1B1B);
 }

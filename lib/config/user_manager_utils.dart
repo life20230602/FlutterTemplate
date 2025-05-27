@@ -55,4 +55,8 @@ class UserManager {
     _checkLogin();
     return _userInfoBean!;
   }
+
+  bool isVip(){
+    return false;
+  }
 }

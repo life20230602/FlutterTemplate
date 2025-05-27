@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_se/res/style.dart';
 import 'package:get/get.dart';
 
+import 'component/app_button_widget.dart';
 import 'custom_underline_tab_Indicator.dart';
 
 class WidgetUtils {
@@ -11,8 +12,9 @@ class WidgetUtils {
     List<Widget> tabs,
     List<Widget> tabItems,
     List<Widget>? titleActions,
-    bool centerTitle,
-  ) {
+    bool centerTitle, {
+    double? underlineWidth,
+  }) {
     return DefaultTabController(
       length: tabController.length,
       child: Scaffold(
@@ -26,6 +28,7 @@ class WidgetUtils {
           title: LayoutBuilder(
             builder: (context, c) {
               return TabBar(
+                padding: EdgeInsets.zero,
                 dividerHeight: 0,
                 labelStyle: TextStyle(
                   fontSize: 16,
@@ -42,7 +45,7 @@ class WidgetUtils {
                 unselectedLabelColor: Colors.white,
                 indicator: CustomUnderlineTabIndicator(
                   isRound: true,
-                  indicatorWidth: 19,
+                  indicatorWidth: underlineWidth ?? 19,
                   borderSide: BorderSide(
                     width: 3,
                     color: context.appTheme.primary,
@@ -76,7 +79,36 @@ extension WidgetExt on StatelessWidget {
       tabs,
       tabItems,
       titleActions,
-      centerTitle
+      centerTitle,
+    );
+  }
+
+  Widget toAppButton(
+    String text, {
+    double height = 41,
+    double? textSize,
+    Function()? onTap,
+  }) {
+    return AppButtonWidget(
+      text: text,
+      height: height,
+      onTap: onTap,
+      textSize: textSize,
+    );
+  }
+
+  Widget toAppButton2(
+    String text, {
+    double height = 41,
+    double? textSize,
+    Function()? onTap,
+  }) {
+    return AppButtonWidget(
+      text: text,
+      height: height,
+      textSize: textSize,
+      onTap: onTap,
+      gradient: [Color(0xFFFFE7C3), Color(0xFFEFB96F)],
     );
   }
 }

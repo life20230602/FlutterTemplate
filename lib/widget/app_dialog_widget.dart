@@ -58,9 +58,7 @@ class AppDialogContainerWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                constraints: BoxConstraints(
-                  maxWidth: context.defaultDialogWidth,
-                ),
+                width: context.defaultDialogWidth,
                 decoration: BoxDecoration(
                   color: backgroundColor,
                   borderRadius: BorderRadius.circular(backgroundRadius),

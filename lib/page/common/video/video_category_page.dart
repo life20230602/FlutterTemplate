@@ -13,7 +13,7 @@ import 'widget/video_tag_list_widget.dart';
 
 /// 视频列表分类
 class VideoCategoryPage extends AppGetXBaseRefreshPage<VideoCategoryLogic>
-    with SingleTickerProvider ,VideoItemMixin{
+    with SingleTickerProvider, VideoItemMixin {
   VideoCategoryPage({super.key});
 
   TabController? _tabController;
@@ -90,7 +90,7 @@ class VideoCategoryPage extends AppGetXBaseRefreshPage<VideoCategoryLogic>
               enableFeedback: false,
               tabAlignment: TabAlignment.fill,
               controller:
-              _tabController ??
+                  _tabController ??
                   (_tabController = TabController(length: 4, vsync: this)),
               labelColor: context.appTheme.primary,
               onTap: (index) {},
@@ -100,12 +100,16 @@ class VideoCategoryPage extends AppGetXBaseRefreshPage<VideoCategoryLogic>
           SizedBox(
             height: 18,
             width: 21,
-            child: AppDividerWidget(
-              verticalDivider: true,
-            ),
+            child: AppDividerWidget(verticalDivider: true),
           ),
-          AppAsset.assets.imagesIconVideoListShowTypeList.toAssetImageWidget(size: 18),
-          const SizedBox(width: 10,)
+          GestureDetector(
+            onTap: () {
+              logic.toggleListOrGrid();
+            },
+            child: AppAsset.assets.imagesIconVideoListShowTypeList
+                .toAssetImageWidget(size: 18),
+          ),
+          const SizedBox(width: 10),
         ],
       ),
     );

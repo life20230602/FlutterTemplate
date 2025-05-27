@@ -1,6 +1,7 @@
 import 'package:chewie/src/chewie_player.dart';
 import 'package:chewie/src/helpers/adaptive_controls.dart';
 import 'package:chewie/src/notifiers/index.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
@@ -16,7 +17,6 @@ class PlayerWithControls extends StatelessWidget {
       final size = MediaQuery.of(context).size;
       final width = size.width;
       final height = size.height;
-
       return width > height ? width / height : height / width;
     }
 
@@ -33,6 +33,16 @@ class PlayerWithControls extends StatelessWidget {
       ChewieController chewieController,
       BuildContext context,
     ) {
+      Widget child;
+      final aspectRatio = chewieController.aspectRatio;
+      if (!kIsWeb && aspectRatio != 0) {
+        child = AspectRatio(
+          aspectRatio: chewieController.aspectRatio ?? chewieController.videoPlayerController.value.aspectRatio,
+          child: VideoPlayer(chewieController.videoPlayerController),
+        );
+      } else {
+        child = VideoPlayer(chewieController.videoPlayerController);
+      }
       return Stack(
         children: <Widget>[
           if (chewieController.placeholder != null)
@@ -42,13 +52,7 @@ class PlayerWithControls extends StatelessWidget {
             maxScale: chewieController.maxScale,
             panEnabled: chewieController.zoomAndPan,
             scaleEnabled: chewieController.zoomAndPan,
-            child: Center(
-              child: AspectRatio(
-                aspectRatio: chewieController.aspectRatio ??
-                    chewieController.videoPlayerController.value.aspectRatio,
-                child: VideoPlayer(chewieController.videoPlayerController),
-              ),
-            ),
+            child: child,
           ),
           if (chewieController.overlay != null) chewieController.overlay!,
           if (Theme.of(context).platform != TargetPlatform.iOS)

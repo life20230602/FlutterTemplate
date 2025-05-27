@@ -9,6 +9,7 @@ import 'package:flutter_se/utils/image_utils.dart';
 import 'package:flutter_se/widget/app_dialog_widget.dart';
 import 'package:flutter_se/widget/component/ad_common_widget.dart';
 import 'package:flutter_se/widget/component/app_button_widget.dart';
+import 'package:flutter_se/widget/widget_utils.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -105,14 +106,12 @@ class AccountCredentialsPage extends AppGetXBasePage<AccountCredentialsLogic> {
 
   ///保存图片
   Widget _buildButton() {
-    return AppButtonWidget(
+    return toAppButton2(
+      "立即保存",
       onTap: () {
         logic.saveQrCode();
       },
-      text: "立即保存",
       textSize: 17,
-      height: 44,
-      gradient: [Color(0xFFFFE7C3), Color(0xFFEFB96F)],
     );
   }
 }

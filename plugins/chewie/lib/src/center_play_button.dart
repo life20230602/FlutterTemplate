@@ -10,7 +10,7 @@ class CenterPlayButton extends StatelessWidget {
     required this.isPlaying,
     required this.isFinished,
     this.onPressed,
-    this.size,
+    this.size = 32,
   });
 
   final Color backgroundColor;
@@ -18,7 +18,7 @@ class CenterPlayButton extends StatelessWidget {
   final bool show;
   final bool isPlaying;
   final bool isFinished;
-  final double? size = 32;
+  final double? size;
   final VoidCallback? onPressed;
 
   @override

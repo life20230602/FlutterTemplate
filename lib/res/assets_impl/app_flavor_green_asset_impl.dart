@@ -105,7 +105,8 @@ class AppFlavorGreenAssetImpl extends AppAsset {
   String get imagesIconClose => "assets/images/icon_close.svg";
 
   @override
-  String get imagesIconMineAccountCredentials => "assets/images/icon_mine_account_credentials.png";
+  String get imagesIconMineAccountCredentials =>
+      "assets/images/icon_mine_account_credentials.png";
 
   @override
   String get imagesIconMineAi => "assets/images/icon_mine_ai.png";
@@ -120,11 +121,37 @@ class AppFlavorGreenAssetImpl extends AppAsset {
   String get imagesIconMineGroup => "assets/images/icon_mine_group.png";
 
   @override
-  String get imagesIconMineInputInvite => "assets/images/icon_mine_input_invite.png";
+  String get imagesIconMineInputInvite =>
+      "assets/images/icon_mine_input_invite.png";
 
   @override
-  String get imagesIconMineOriginalEntry => "assets/images/icon_mine_original_entry.png";
+  String get imagesIconMineOriginalEntry =>
+      "assets/images/icon_mine_original_entry.png";
 
   @override
   String get imagesIconMineQuestion => "assets/images/icon_mine_question.png";
+
+  @override
+  String get imagesIconLikeLarge => "assets/images/icon_like_large.svg";
+
+  @override
+  String get imagesIconComment => "assets/images/icon_comment.svg";
+
+  @override
+  String get imagesIconFollowUser => "assets/images/icon_follow_user.svg";
+
+  @override
+  String get imagesIconShare => "assets/images/icon_share.svg";
+
+  @override
+  String get imagesIconCommentCount => "assets/images/icon_comment_count.svg";
+
+  @override
+  String get imagesIconViewCount => "assets/images/icon_view_count.svg";
+
+  @override
+  String get imagesIconLike => "assets/images/icon_like.svg";
+
+  @override
+  String get imagesIconLikeDefault => "assets/images/icon_like_default.svg";
 }

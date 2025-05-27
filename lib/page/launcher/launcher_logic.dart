@@ -7,6 +7,7 @@ import 'package:flutter_se/page/mu_yin/mu_yin_page.dart';
 import 'package:flutter_se/page/short_video/short_video_page.dart';
 import 'package:flutter_se/page/zi_xiao/zi_xiao_page.dart';
 import 'package:flutter_se/res/app_theme.dart';
+import 'package:flutter_se/utils/app_dialog_utils.dart';
 import 'package:get/get.dart';
 
 import '../../res/app_asset.dart';
@@ -22,6 +23,8 @@ class LauncherLogic extends AppGetXBaseLogic {
   @override
   void onLoad() {
     startup();
+
+    AppDialogUtils.showVipVideoLineDialog();
   }
 
   //开始启动加载底部菜单数据

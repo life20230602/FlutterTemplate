@@ -5,6 +5,8 @@ abstract class AppTheme {
 
   /// 主色调
   Color get primary;
+  ///次级主色调
+  Color get secondPrimary;
 
   ///背景色
   Color get appBackground;
@@ -65,5 +67,13 @@ abstract class AppTheme {
   List<Color> get videoPermissionCoinBgColor;
 
   Color get videoPermissionCoinTextColor;
+
+
+  //弹窗统一背景颜色和字体颜色
+  Color get dialogBgColor;
+
+  Color get dialogTextColor;
+
+  Color get dialogSecondColor;
 
 }

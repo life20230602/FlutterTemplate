@@ -54,4 +54,12 @@ abstract class AppAsset {
   String get imagesIconMineInputInvite;
   String get imagesIconMineOriginalEntry;
   String get imagesIconMineQuestion;
+  String get imagesIconLikeLarge;
+  String get imagesIconComment;
+  String get imagesIconFollowUser;
+  String get imagesIconShare;
+  String get imagesIconViewCount;
+  String get imagesIconCommentCount;
+  String get imagesIconLike;
+  String get imagesIconLikeDefault;
 }

@@ -7,6 +7,8 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 /// 视频列表分类
 class VideoCategoryLogic extends AppGetXBaseRefreshLogic
     with AppRefreshHelper<VideoListElement>, VideoItemLogicMixin {
+
+
   @override
   void onLoadData(bool firstLoad, int page, bool isLoadMore) {
     itemList.add(
@@ -14,7 +16,7 @@ class VideoCategoryLogic extends AppGetXBaseRefreshLogic
         "id": 1,
         "permission_type": 1,
         "adv": false,
-        "title": "但是烦得很",
+        "title": "法啊发法啊发法啊发法啊发法啊发 VV 想",
       }),
     );
     itemList.add(
@@ -52,6 +54,4 @@ class VideoCategoryLogic extends AppGetXBaseRefreshLogic
     showSuccess();
   }
 
-  @override
-  RxList<VideoListElement> getVideoList() => itemList;
 }

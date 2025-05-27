@@ -11,7 +11,12 @@ typedef OnVideoItemClick = void Function(VideoListElement item);
 
 ///统一的视频item样式
 class AppVideoItemWidget extends StatelessWidget {
-  const AppVideoItemWidget(this.item, {super.key, this.onVideoItemClick, this.aspectRatio});
+  const AppVideoItemWidget(
+    this.item, {
+    super.key,
+    this.onVideoItemClick,
+    this.aspectRatio,
+  });
 
   final VideoListElement item;
   final OnVideoItemClick? onVideoItemClick;
@@ -29,9 +34,7 @@ class AppVideoItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildImage(item),
-          const SizedBox(
-            height: 2,
-          ),
+          const SizedBox(height: 2),
           Container(
             padding: const EdgeInsets.fromLTRB(3, 0, 3, 10),
             child: Column(
@@ -41,12 +44,10 @@ class AppVideoItemWidget extends StatelessWidget {
                 if (!item.adv)
                   _buildBottomDescInfo()
                 else
-                  const SizedBox(
-                    height: 15,
-                  )
+                  const SizedBox(height: 15),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -60,12 +61,17 @@ class AppVideoItemWidget extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           item.horizontalCover.toEncryptNetworkImageWidget(radius: 6),
-          if (!item.adv) Align(alignment: Alignment.bottomLeft, child: _buildDescInfo()),
+          if (!item.adv)
+            Align(alignment: Alignment.bottomLeft, child: _buildDescInfo()),
           Align(
             alignment: Alignment.topRight,
             child: item.toPermissionWidget(
-                borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(6), topRight: Radius.circular(6))),
-          )
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(6),
+                topRight: Radius.circular(6),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -90,14 +96,14 @@ class AppVideoItemWidget extends StatelessWidget {
       height: 23,
       padding: const EdgeInsets.only(left: 5, right: 5),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(6), bottomRight: Radius.circular(6)),
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(6),
+          bottomRight: Radius.circular(6),
+        ),
         gradient: LinearGradient(
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
-          colors: [
-            Colors.black,
-            Colors.black.withOpacity(0.1),
-          ],
+          colors: [Colors.black, Colors.black.withOpacity(0.1)],
         ),
       ),
       child: Row(
@@ -119,7 +125,7 @@ class AppVideoItemWidget extends StatelessWidget {
                 style: const TextStyle(fontSize: 10),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -164,7 +170,7 @@ abstract class _PermissionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
+      padding: const EdgeInsets.fromLTRB(5, 1, 5, 1),
       decoration: BoxDecoration(
         borderRadius: borderRadius,
         gradient: LinearGradient(
@@ -175,7 +181,7 @@ abstract class _PermissionWidget extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(fontSize: 9, color: textColor(context)),
+        style: TextStyle(fontSize: 11, color: textColor(context)),
       ),
     );
   }
@@ -195,6 +201,10 @@ class _PermissionVipWidget extends _PermissionWidget {
   List<Color> colors(BuildContext context) {
     return context.appTheme.videoPermissionVipBgColor;
   }
+
+  @override
+  Color textColor(BuildContext context) =>
+      context.appTheme.videoPermissionVipTextColor;
 }
 
 //金币 权限样式
@@ -247,10 +257,7 @@ class _PermissionAdWidget extends _PermissionWidget {
 
   @override
   List<Color> colors(BuildContext context) {
-    return [
-      const Color(0xFFFF68F9),
-      const Color(0xFF5C3CDD),
-    ];
+    return [const Color(0xFFFF68F9), const Color(0xFF5C3CDD)];
   }
 }
 
@@ -259,29 +266,18 @@ extension VideoListElementExt on VideoListElement {
   Widget toPermissionWidget({BorderRadius? borderRadius}) {
     Widget? widget;
     if (permissionType == 1) {
-      widget = _PermissionVipWidget(
-        "VIP",
-        borderRadius: borderRadius,
-      );
+      widget = _PermissionVipWidget("VIP", borderRadius: borderRadius);
     } else if (permissionType == 2) {
-      widget = _PermissionFreeWidget(
-        "免费",
-        borderRadius: borderRadius,
-      );
+      widget = _PermissionFreeWidget("免费", borderRadius: borderRadius);
     } else if (permissionType == 3) {
       var stringAsFixed = Decimal.parse(salePrice).toStringAsFixed(1);
-      if(int.parse(stringAsFixed.substring(stringAsFixed.indexOf(".")+1)) == 0){
-        stringAsFixed = stringAsFixed.substring(0,stringAsFixed.indexOf("."));
+      if (int.parse(stringAsFixed.substring(stringAsFixed.indexOf(".") + 1)) ==
+          0) {
+        stringAsFixed = stringAsFixed.substring(0, stringAsFixed.indexOf("."));
       }
-      widget = _PermissionCoinWidget(
-        stringAsFixed,
-        borderRadius: borderRadius,
-      );
+      widget = _PermissionCoinWidget(stringAsFixed, borderRadius: borderRadius);
     } else if (adv) {
-      widget = _PermissionAdWidget(
-        "广告",
-        borderRadius: borderRadius,
-      );
+      widget = _PermissionAdWidget("广告", borderRadius: borderRadius);
     } else {
       widget = Container();
     }

@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_se/base/logic/app_base_logic.dart';
 import 'package:flutter_se/page/mine/account_credentials/account_credentials_page.dart';
+import 'package:flutter_se/page/mine/my_collect/my_collect_page.dart';
 import 'package:flutter_se/page/mine/questions/questions_page.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/utils/app_dialog_utils.dart';
@@ -8,8 +8,9 @@ import 'package:get/get.dart';
 
 import 'apps/apps_page.dart';
 import 'entity/menu_entity.dart';
+import 'follow/follow_page.dart';
 import 'input_exchange/input_exchange_code_page.dart';
-import 'invite/invite_page.dart';
+import 'mybuy/mybuy_page.dart';
 import 'official/official_page.dart';
 import 'original_entry/original_entry_dialog.dart';
 
@@ -35,10 +36,16 @@ class MineLogic extends AppGetXBaseLogic {
     menuList.add(
       MenuEntity(AppAsset.assets.imagesIconContactCustomer, "联系客服", () {}),
     );
-    menuList.add(MenuEntity(AppAsset.assets.imagesIconMyBuy, "我的购买", () {}));
-    menuList.add(MenuEntity(AppAsset.assets.imagesIconMyFollow, "我的关注", () {}));
+    menuList.add(MenuEntity(AppAsset.assets.imagesIconMyBuy, "我的购买", () {
+      Get.to(MyBuyPage());
+    }));
+    menuList.add(MenuEntity(AppAsset.assets.imagesIconMyFollow, "我的关注", () {
+      Get.to(FollowPage());
+    }));
     menuList.add(
-      MenuEntity(AppAsset.assets.imagesIconMyCollect, "我的收藏", () {}),
+      MenuEntity(AppAsset.assets.imagesIconMyCollect, "我的收藏", () {
+        Get.to(MyCollectPage());
+      }),
     );
 
     bottomMenuList.add(
