@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../res/style.dart';
+import '../../res/app_theme.dart';
 
 typedef OnBackListener = Function();
 

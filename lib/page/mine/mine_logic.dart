@@ -3,6 +3,7 @@ import 'package:flutter_se/page/mine/account_credentials/account_credentials_pag
 import 'package:flutter_se/page/mine/my_collect/my_collect_page.dart';
 import 'package:flutter_se/page/mine/questions/questions_page.dart';
 import 'package:flutter_se/res/app_asset.dart';
+import 'package:flutter_se/route/route_utils.dart';
 import 'package:flutter_se/utils/app_dialog_utils.dart';
 import 'package:get/get.dart';
 
@@ -49,7 +50,9 @@ class MineLogic extends AppGetXBaseLogic {
     );
 
     bottomMenuList.add(
-      MenuEntity(AppAsset.assets.imagesIconMineAi, "AI脱衣", () {}),
+      MenuEntity(AppAsset.assets.imagesIconMineAi, "AI脱衣", () {
+        RouteUtils.toAi();
+      }),
     );
     bottomMenuList.add(
       MenuEntity(AppAsset.assets.imagesIconMineGroup, "官方群", () {

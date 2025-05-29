@@ -154,4 +154,47 @@ class AppFlavorGreenAssetImpl extends AppAsset {
 
   @override
   String get imagesIconLikeDefault => "assets/images/icon_like_default.svg";
+
+  @override
+  String get imagesIconAiCenter => "assets/images/icon_ai_center.svg";
+
+  @override
+  String get imagesIconAiFaceSwap => "assets/images/icon_ai_face_swap.svg";
+
+  @override
+  String get imagesIconAiDiyFaceSwap =>
+      "assets/images/icon_ai_diy_face_swap.png";
+
+  @override
+  String get imagesIconAiStrip => "assets/images/icon_ai_strip.svg";
+
+  @override
+  String get imagesIconAiVideoFaceSwap =>
+      "assets/images/icon_ai_video_face_swap.svg";
+
+  @override
+  String get imagesIconCoin => "assets/images/icon_coin.png";
+
+  @override
+  String get imagesIconAiCenterActive =>
+      "assets/images/icon_ai_center_active.svg";
+
+  @override
+  String get imagesIconAiVideoFaceSwapActive =>
+      "assets/images/icon_ai_video_face_swap_active.svg";
+
+  @override
+  String get imagesIconAlipay => "assets/images/icon_alipay.png";
+
+  @override
+  String get imagesIconRadio => "assets/images/icon_radio.svg";
+
+  @override
+  String get imagesIconRadioActive => "assets/images/icon_radio_active.svg";
+
+  @override
+  String get imagesIconWechat => "assets/images/icon_wechat.png";
+
+  @override
+  String get imagesIconImageHolder => "assets/images/icon_image_holder.svg";
 }

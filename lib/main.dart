@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_se/res/style.dart';
+import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/route/route_utils.dart';
 import 'package:flutter_se/utils/cache_utils.dart';
 import 'package:flutter_se/utils/refresh_utils.dart';

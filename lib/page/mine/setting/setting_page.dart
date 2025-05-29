@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -42,12 +44,18 @@ class SettingPage extends AppGetXBasePage<SettingLogic> {
           const SizedBox(height: 30),
           _buildItem(AppAsset.assets.imagesIconEdit, "昵称", "111"),
           const SizedBox(height: 10),
-          Obx(()=>GestureDetector(
-            onTap: (){
-              logic.clearCache();
-            },
-            child: _buildItem(AppAsset.assets.imagesIconTrash, "清理缓存", logic.cacheSizeObs.value),
-          )),
+          Obx(
+            () => GestureDetector(
+              onTap: () {
+                logic.clearCache();
+              },
+              child: _buildItem(
+                AppAsset.assets.imagesIconTrash,
+                "清理缓存",
+                logic.cacheSizeObs.value,
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -110,9 +118,9 @@ class SettingPage extends AppGetXBasePage<SettingLogic> {
   _buildImage() {
     return Obx(
       () =>
-          logic.avatarDataObs.value != null
-              ? Image.memory(
-                logic.avatarDataObs.value!,
+          logic.avatarUrlObs.isNotEmpty
+              ? Image.file(
+                File(logic.avatarUrlObs.value),
                 width: 60,
                 height: 60,
                 fit: BoxFit.cover,

@@ -62,4 +62,17 @@ abstract class AppAsset {
   String get imagesIconCommentCount;
   String get imagesIconLike;
   String get imagesIconLikeDefault;
+  String get imagesIconAiStrip;
+  String get imagesIconAiFaceSwap;
+  String get imagesIconAiVideoFaceSwap;
+  String get imagesIconAiDiyFaceSwap;
+  String get imagesIconAiCenter;
+  String get imagesIconAiVideoFaceSwapActive;
+  String get imagesIconAiCenterActive;
+  String get imagesIconCoin;
+  String get imagesIconRadio;
+  String get imagesIconRadioActive;
+  String get imagesIconWechat;
+  String get imagesIconAlipay;
+  String get imagesIconImageHolder;
 }

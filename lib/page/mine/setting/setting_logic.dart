@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:flutter_se/base/logic/app_base_logic.dart';
 import 'package:flutter_se/utils/app_dialog_utils.dart';
 import 'package:get/get.dart';
@@ -9,8 +10,8 @@ import 'package:path_provider/path_provider.dart';
 
 /// 账号设置
 class SettingLogic extends AppGetXBaseLogic {
-  //选择的图片字节数据
-  final avatarDataObs = Rxn<Uint8List>();
+  //选择的图片地址
+  final avatarUrlObs = "".obs;
 
   //服务器头像地址
   String avatarUrl = "";
@@ -27,7 +28,7 @@ class SettingLogic extends AppGetXBaseLogic {
   Future<Null> loadCache() async {
     Directory tempDir = await getTemporaryDirectory();
     double value = await _getTotalSizeOfFilesInDir(tempDir);
-    cacheSizeObs.value =  _renderSize(value);
+    cacheSizeObs.value = _renderSize(value);
     showSuccess();
   }
 
@@ -89,8 +90,19 @@ class SettingLogic extends AppGetXBaseLogic {
   void pickerImage() async {
     final file = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (file != null) {
-      var uint8list = await file.readAsBytes();
-      avatarDataObs.value = uint8list;
+      AppDialogUtils.showLoadingDialog();
+      Directory tempDir = await getTemporaryDirectory();
+      final output =
+          "${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.jpg";
+      var result = await FlutterImageCompress.compressAndGetFile(
+        file.path,
+        output,
+        quality: 88,
+      );
+      AppDialogUtils.dismissLoadingDialog();
+      if (result != null) {
+        avatarUrlObs.value = result.path;
+      }
     }
   }
 }

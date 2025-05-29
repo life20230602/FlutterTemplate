@@ -2,23 +2,22 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
-import 'package:flutter_se/page/launcher/launcher_logic.dart';
-import 'package:flutter_se/page/launcher/navigation_listener.dart';
+import 'package:flutter_se/page/ai/ai_home_logic.dart';
+import 'package:flutter_se/page/ai/diy_face_swap/diy_face_swap_page.dart';
+import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/utils/image_utils.dart';
 import 'package:get/get.dart';
 
-///首页
-class LauncherPage extends AppGetXBasePage<LauncherLogic>
-    with NavigationController {
-  LauncherPage({super.key});
+class AiHomePage extends AppGetXBasePage<AiHomeLogic> {
+  AiHomePage({super.key});
 
-  final _currentIndex = 0.obs;
+  @override
+  AiHomeLogic createController() => AiHomeLogic();
 
-  //导航栏上一次选中的位置
-  var _preNavigationIndex = 0;
+  @override
+  bool showTitle() => false;
 
   @override
   Widget? buildBottomNavigationBar() {
@@ -38,25 +37,6 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
     });
   }
 
-  @override
-  Function()? onBackListener() {
-    return () {
-      //第一个模块有内嵌路由管理，不是统一的路由管理
-      if(_currentIndex.value == 0){
-        if (Navigator.canPop(logic.muYinNavigatorKey.currentContext!)) {
-          Navigator.pop(logic.muYinNavigatorKey.currentContext!);
-          return;
-        }
-      }
-      SystemNavigator.pop();
-    };
-  }
-
-  @override
-  bool enableTopSafeArea() {
-    return false;
-  }
-
   Widget _buildBottomBarWidget() {
     return Theme(
       data: ThemeData(
@@ -72,10 +52,10 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
         // 导航栏
         items: _items(),
         backgroundColor: context.appTheme.appBottomBarBgColor,
-        currentIndex: _currentIndex.value,
+        currentIndex: logic.currentIndexObs.value,
         // 选中的位置
         onTap: (index) {
-          _currentIndex.value = index;
+          logic.currentIndexObs.value = index;
         },
         selectedItemColor: context.appTheme.primary,
         selectedFontSize: 13,
@@ -90,17 +70,6 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
         type: BottomNavigationBarType.fixed, // 这个要设置，不然默认颜色 出不来
       ),
     );
-  }
-
-  @override
-  bool showTitle() {
-    return false;
-  }
-
-  @override
-  Widget buildChild(BuildContext context) {
-    var list = logic.menuListObs.map((element) => element.body!).toList();
-    return Obx(() => IndexedStack(index: _currentIndex.value, children: list));
   }
 
   /// 导航栏
@@ -121,11 +90,6 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
     return items;
   }
 
-  @override
-  LauncherLogic createController() {
-    return LauncherLogic();
-  }
-
   Widget _buildIcon(String image, Color? color) {
     return Container(
       width: 35,
@@ -136,21 +100,32 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
   }
 
   @override
-  void changeIndex(int position) {
-    _preNavigationIndex = _currentIndex.value;
-    _currentIndex.value = position;
+  Widget buildChild(BuildContext context) {
+    var list = logic.menuListObs.map((element) => element.body!).toList();
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Obx(
+          () =>
+              IndexedStack(index: logic.currentIndexObs.value, children: list),
+        ),
+        _buildDiyFaceSwapWidget(),
+      ],
+    );
   }
 
-  @override
-  void toNext() {
-    var value = _currentIndex.value;
-    _currentIndex.value = (value + 1) % logic.menuListObs.length;
-  }
-
-  @override
-  void toPrevious() {
-    int pre = _currentIndex.value;
-    _currentIndex.value = _preNavigationIndex;
-    _preNavigationIndex = pre;
+  Widget _buildDiyFaceSwapWidget() {
+    return Positioned(
+      width: 50,
+      height: 50,
+      right: 12,
+      bottom: 30,
+      child: GestureDetector(
+        onTap: () {
+          Get.to(DiyFaceSwapPage());
+        },
+        child: AppAsset.assets.imagesIconAiDiyFaceSwap.toAssetImageWidget(),
+      ),
+    );
   }
 }

@@ -5,8 +5,10 @@ import 'package:flutter_se/base/page/app_getx_base_page.dart';
 import 'package:flutter_se/page/mine/entity/menu_entity.dart';
 import 'package:flutter_se/page/mine/msg/msg_page.dart';
 import 'package:flutter_se/page/mine/setting/setting_page.dart';
+import 'package:flutter_se/page/mine/vip_upgrade/vip_upgrade_page.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/res/app_theme.dart';
+import 'package:flutter_se/route/route_utils.dart';
 import 'package:flutter_se/utils/image_utils.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
@@ -141,7 +143,12 @@ class MinePage extends AppGetXBasePage<MineLogic> {
   Widget _buildBanner() {
     return AspectRatio(
       aspectRatio: 350 / 75,
-      child: Container(alignment: Alignment.center, child: Text("横幅")),
+      child: GestureDetector(
+        onTap: (){
+          Get.to(VipUpgradePage());
+        },
+        child: Container(alignment: Alignment.center, child: Text("横幅")),
+      ),
     );
   }
 
@@ -256,10 +263,15 @@ class MinePage extends AppGetXBasePage<MineLogic> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
-          child: _buildIconMenuItem(
-            AppAsset.assets.imagesIconMineAmount,
-            "金币充值",
-            "8568",
+          child: GestureDetector(
+            onTap: (){
+              RouteUtils.toCoinCharge();
+            },
+            child: _buildIconMenuItem(
+              AppAsset.assets.imagesIconMineAmount,
+              "金币充值",
+              "8568",
+            ),
           ),
         ),
         const SizedBox(width: 10),

@@ -37,7 +37,7 @@ class AdBannerWidget extends AppGetXBasePage<AdBannerLogic> {
   @override
   Widget buildChild(BuildContext context) {
     if (adList == null || adList!.isEmpty) {
-      return Container();
+      return Container(height: adHeight);
     }
     if (adHeight != 0) {
       return SizedBox(

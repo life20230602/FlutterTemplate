@@ -99,6 +99,7 @@ dependencies:
   chewie:
     path: plugins/chewie
   dotted_line: ^3.2.3
+  flutter_image_compress: ^2.4.0
 
 dev_dependencies:
   flutter_test:

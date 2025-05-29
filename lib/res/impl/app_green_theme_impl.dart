@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/res/themes.dart';
 
 ///黑绿色主题实现
@@ -18,7 +19,7 @@ class AppGreenThemeImpl extends AppTheme {
   Color get titleTextColor => Colors.white;
 
   @override
-  Color get appGrey => const Color(0xFFBEBBBA);
+  Color get appGrey => const Color(0xFFA09F9F);
 
   @override
   Color get titleBackground => Colors.black;
@@ -96,4 +97,5 @@ class AppGreenThemeImpl extends AppTheme {
 
   @override
   Color get dialogSecondColor => const Color(0xFF1B1B1B);
+
 }

@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_se/base/widget/loading_layout.dart';
-import 'package:flutter_se/res/style.dart';
+import 'package:flutter_se/res/app_theme.dart';
 import 'package:get/get.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 

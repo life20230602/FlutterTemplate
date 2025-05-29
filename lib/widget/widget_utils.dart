@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_se/res/style.dart';
+import 'package:flutter_se/res/app_theme.dart';
 import 'package:get/get.dart';
 
 import 'component/app_button_widget.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_se/res/style.dart';
+import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_svg/svg.dart';
 
 ///app 本地图片加载

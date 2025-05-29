@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_se/res/style.dart';
+import 'package:flutter_se/res/app_theme.dart';
 
 ///app button 按钮
 class AppButtonWidget extends StatelessWidget {

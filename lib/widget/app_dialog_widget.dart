@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_se/res/style.dart';
+import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/utils/build_context_extension.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
