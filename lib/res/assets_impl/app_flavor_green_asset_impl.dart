@@ -197,4 +197,22 @@ class AppFlavorGreenAssetImpl extends AppAsset {
 
   @override
   String get imagesIconImageHolder => "assets/images/icon_image_holder.svg";
+
+  @override
+  String get imagesIconAiStripDest => "assets/images/icon_ai_strip_dest.png";
+
+  @override
+  String get imagesIconAiStripSource => "assets/images/icon_ai_strip_source.png";
+
+  @override
+  String get imagesIconVipChargeBanner => "assets/images/icon_vip_charge_banner.png";
+
+  @override
+  String get imagesIconZixiaoCoverTop => "assets/images/icon_zixiao_cover_top.png";
+
+  @override
+  String get imagesIconZixiaoXiaoXue => "assets/images/icon_zixiao_xiaoxue.jpg";
+
+  @override
+  String get imagesIconCommentSend => "assets/images/icon_comment_send.svg";
 }

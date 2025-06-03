@@ -12,11 +12,11 @@ import 'category/mu_yin_category_page.dart';
 
 ///母淫
 class MuYinPage extends AppGetXBasePage<MuYinLogic> with SingleTickerProvider {
-  MuYinPage({super.key, required this.muYinNavigatorKey});
+  MuYinPage({super.key, required this.navigatorKey});
 
   TabController? tabController;
 
-  final GlobalKey<NavigatorState> muYinNavigatorKey;
+  final GlobalKey<NavigatorState> navigatorKey;
 
   final List<Widget> bodyList = [];
 
@@ -58,8 +58,8 @@ class MuYinPage extends AppGetXBasePage<MuYinLogic> with SingleTickerProvider {
 
   List<Widget> _body() {
     if (bodyList.isNotEmpty) return bodyList;
-    bodyList.add(MuYinChildPage(type: 1, muYinNavigatorKey: muYinNavigatorKey));
-    bodyList.add(MuYinChildPage(type: 2, muYinNavigatorKey: muYinNavigatorKey));
+    bodyList.add(MuYinChildPage(type: 1, muYinNavigatorKey: navigatorKey));
+    bodyList.add(MuYinChildPage(type: 2, muYinNavigatorKey: navigatorKey));
     return bodyList;
   }
 

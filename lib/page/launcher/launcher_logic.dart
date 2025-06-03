@@ -20,11 +20,12 @@ class LauncherLogic extends AppGetXBaseLogic {
   //为了实现母淫菜单页面内部跳转，单独管理路由
   final GlobalKey<NavigatorState> muYinNavigatorKey = GlobalKey();
 
+  //子笑模块页面内部跳转
+  final GlobalKey<NavigatorState> ziXiaoNavigatorKey = GlobalKey();
+
   @override
   void onLoad() {
     startup();
-
-    AppDialogUtils.showVipVideoLineDialog();
   }
 
   //开始启动加载底部菜单数据
@@ -45,7 +46,10 @@ class LauncherLogic extends AppGetXBaseLogic {
               transition: Transition.rightToLeft,
               popGesture: true,
               settings: settings,
-              page: ()=>MuYinPage(muYinNavigatorKey: muYinNavigatorKey,), // Placeholder, BottomPage can be added here
+              page:
+                  () => MuYinPage(
+                    navigatorKey: muYinNavigatorKey,
+                  ), // Placeholder, BottomPage can be added here
             );
           },
         ),
@@ -57,7 +61,20 @@ class LauncherLogic extends AppGetXBaseLogic {
         defaultImage: AppAsset.assets.imagesMainBottomIcon2Default,
         activeImage: AppAsset.assets.imagesMainBottomIcon2Default,
         activeColor: Get.context!.appTheme.primary,
-        body: ZiXiaoPage(),
+        body: Navigator(
+          key: ziXiaoNavigatorKey,
+          onGenerateRoute: (settings) {
+            return GetPageRoute(
+              transition: Transition.rightToLeft,
+              popGesture: true,
+              settings: settings,
+              page:
+                  () => ZiXiaoPage(
+                    navigationKey: ziXiaoNavigatorKey,
+                  ), // Placeholder, BottomPage can be added here
+            );
+          },
+        ),
       ),
     );
     menuListObs.add(

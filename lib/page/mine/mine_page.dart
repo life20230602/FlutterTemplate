@@ -5,6 +5,7 @@ import 'package:flutter_se/base/page/app_getx_base_page.dart';
 import 'package:flutter_se/page/mine/entity/menu_entity.dart';
 import 'package:flutter_se/page/mine/msg/msg_page.dart';
 import 'package:flutter_se/page/mine/setting/setting_page.dart';
+import 'package:flutter_se/page/mine/vip/vip_page.dart';
 import 'package:flutter_se/page/mine/vip_upgrade/vip_upgrade_page.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/res/app_theme.dart';
@@ -145,7 +146,7 @@ class MinePage extends AppGetXBasePage<MineLogic> {
       aspectRatio: 350 / 75,
       child: GestureDetector(
         onTap: (){
-          Get.to(VipUpgradePage());
+          Get.to(VipPage());
         },
         child: Container(alignment: Alignment.center, child: Text("横幅")),
       ),

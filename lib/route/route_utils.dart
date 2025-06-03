@@ -1,4 +1,6 @@
+import 'package:flutter_se/page/common/video/detail/video_detail_page.dart';
 import 'package:flutter_se/page/launcher/launcher_page.dart';
+import 'package:flutter_se/page/mine/vip/vip_page.dart';
 import 'package:flutter_se/page/splash/splash_page.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +14,8 @@ class RouteUtils {
     GetPage(name: "/main", page: () => LauncherPage()),
     GetPage(name: "/ai", page: () => AiHomePage()),
     GetPage(name: "/coin", page: () => CoinChargePage()),
+    GetPage(name: "/vip", page: () => VipPage()),
+    GetPage(name: "/video/detail", page: () => VideoDetailPage()),
   ];
 
   static toSplash() {
@@ -32,5 +36,9 @@ class RouteUtils {
 
   static toCoinCharge(){
     Get.toNamed("/coin");
+  }
+
+  static void toVip() {
+    Get.toNamed("/vip");
   }
 }

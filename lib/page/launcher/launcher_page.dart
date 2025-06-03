@@ -48,9 +48,18 @@ class LauncherPage extends AppGetXBasePage<LauncherLogic>
           return;
         }
       }
+      //第2个模块有内嵌路由管理，不是统一的路由管理
+      if(_currentIndex.value == 1){
+        if (Navigator.canPop(logic.ziXiaoNavigatorKey.currentContext!)) {
+          Navigator.pop(logic.ziXiaoNavigatorKey.currentContext!);
+          return;
+        }
+      }
       SystemNavigator.pop();
     };
   }
+
+
 
   @override
   bool enableTopSafeArea() {

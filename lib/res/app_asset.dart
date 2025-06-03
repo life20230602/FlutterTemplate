@@ -75,4 +75,10 @@ abstract class AppAsset {
   String get imagesIconWechat;
   String get imagesIconAlipay;
   String get imagesIconImageHolder;
+  String get imagesIconAiStripSource;
+  String get imagesIconAiStripDest;
+  String get imagesIconVipChargeBanner;
+  String get imagesIconZixiaoCoverTop;
+  String get imagesIconZixiaoXiaoXue;
+  String get imagesIconCommentSend;
 }

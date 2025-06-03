@@ -1,19 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
-import 'package:flutter_se/page/mine/apps/apps_logic.dart';
 import 'package:flutter_se/page/mine/vip_upgrade/vip_upgrade_logic.dart';
 import 'package:flutter_se/page/mine/widget/bottom_pay_button_widget.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/utils/app_dialog_utils.dart';
 import 'package:flutter_se/utils/image_utils.dart';
-import 'package:flutter_se/widget/component/ad_common_widget.dart';
-import 'package:flutter_se/widget/component/app_button_widget.dart';
 import 'package:flutter_se/widget/widget_utils.dart';
 
-import 'dialog_bottom_pay.dart';
+import '../vip/dialog_bottom_pay_widget.dart';
 
 /// 会员升级
 class VipUpgradePage extends AppGetXBasePage<VipUpgradeLogic> {

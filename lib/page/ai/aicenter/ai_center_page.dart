@@ -9,6 +9,7 @@ import 'package:flutter_se/widget/component/ad_common_widget.dart';
 import 'package:flutter_se/widget/widget_utils.dart';
 
 import '../../../res/app_asset.dart';
+import '../../../widget/component/app_title_right_button_widget.dart';
 import '../widget/ai_center_head_widget.dart';
 import 'ai_center_logic.dart';
 
@@ -25,10 +26,9 @@ class AiCenterPage extends AppGetXBasePage<AiCenterLogic> {
   @override
   List<Widget>? titleActions() {
     return [
-      Text(
-        "作品记录",
-        strutStyle: StrutStyle(forceStrutHeight: true),
-        style: TextStyle(fontSize: 15, color: context.appTheme.titleTextColor),
+      AppTitleRightButtonWidget(
+        text: "作品记录",
+        onTap: (){},
       ),
     ];
   }
