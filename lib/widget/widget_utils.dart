@@ -101,14 +101,16 @@ extension WidgetExt on StatelessWidget {
     String text, {
     double height = 41,
     double? textSize,
+    double? radius,
     Function()? onTap,
   }) {
     return AppButtonWidget(
       text: text,
       height: height,
+      radius: radius,
       textSize: textSize,
       onTap: onTap,
-      gradient: [Color(0xFFFFE7C3), Color(0xFFEFB96F)],
+      gradient: const [Color(0xFFFFE7C3), Color(0xFFEFB96F)],
     );
   }
 }

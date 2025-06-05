@@ -7,7 +7,8 @@ import '../../../../bean/video_list_item_bean.dart';
 import '../../mixin/player_record_mixin_controller.dart';
 
 ///视频详情
-class VideoDetailLogic extends AppGetXBaseLogic with PlayerRecordMixinController{
+class VideoDetailLogic extends AppGetXBaseLogic
+    with PlayerRecordMixinController {
   VideoDetailLogic({this.vid = 0});
 
   final int vid;
@@ -23,10 +24,17 @@ class VideoDetailLogic extends AppGetXBaseLogic with PlayerRecordMixinController
 
   @override
   void onLoad() {
-    loadWithVid(vid,false);
+    loadWithVid(vid, false);
   }
 
-  void loadWithVid(int vid,bool loading) {
+  void loadWithVid(int vid, bool loading) {
+    videoInfoObs.value = VideoListElement.fromJson({
+      "id": 1,
+      "permission_type": 1,
+      "adv": false,
+      "title": "法啊发法啊发法啊发法啊发法啊发 VV 想",
+    });
+    showSuccess();
     // var videoDetail = client.getVideoDetail({"vid": vid}, cancelToken);
     // if(loading){
     //   videoDetail = bindLoading(videoDetail);
@@ -41,6 +49,6 @@ class VideoDetailLogic extends AppGetXBaseLogic with PlayerRecordMixinController
 
   ///播放指定视频
   void playVideo(VideoListElement item) {
-    loadWithVid(item.id,true);
+    loadWithVid(item.id, true);
   }
 }

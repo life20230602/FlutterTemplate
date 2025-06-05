@@ -7,11 +7,13 @@ import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/utils/image_utils.dart';
 import 'package:flutter_se/widget/component/ad_common_widget.dart';
 import 'package:flutter_se/widget/widget_utils.dart';
+import 'package:get/get.dart';
 
 import '../../../res/app_asset.dart';
 import '../../../widget/component/app_title_right_button_widget.dart';
 import '../widget/ai_center_head_widget.dart';
 import 'ai_center_logic.dart';
+import 'ai_vip_page.dart';
 
 ///ai中心
 class AiCenterPage extends AppGetXBasePage<AiCenterLogic> {
@@ -25,12 +27,7 @@ class AiCenterPage extends AppGetXBasePage<AiCenterLogic> {
 
   @override
   List<Widget>? titleActions() {
-    return [
-      AppTitleRightButtonWidget(
-        text: "作品记录",
-        onTap: (){},
-      ),
-    ];
+    return [AppTitleRightButtonWidget(text: "作品记录", onTap: () {})];
   }
 
   @override
@@ -48,18 +45,18 @@ class AiCenterPage extends AppGetXBasePage<AiCenterLogic> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: _buildButton("交易记录", (){})),
+              Expanded(child: _buildButton("交易记录", () {})),
               const SizedBox(width: 10),
-              Expanded(child: _buildButton("作品记录", (){})),
+              Expanded(child: _buildButton("作品记录", () {})),
             ],
-          )
+          ),
         ],
       ),
     );
   }
 
   ///按钮
-  Widget _buildButton(String text,Function() onTap) {
+  Widget _buildButton(String text, Function() onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -69,16 +66,52 @@ class AiCenterPage extends AppGetXBasePage<AiCenterLogic> {
           color: context.appTheme.secondBgColor,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Text(text,
-          style: TextStyle(fontSize: 16, color: context.appTheme.secondTextColor),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 16,
+            color: context.appTheme.secondTextColor,
+          ),
         ),
       ),
     );
   }
 
-  ///轮播
+  ///广告图
   Widget _buildBanner() {
-    return AdBannerWidget();
+    return GestureDetector(
+      onTap: () {
+        Get.to(AiVipPage());
+      },
+      child: AspectRatio(
+        aspectRatio: 700 / 200,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            AppAsset.assets.imagesIconAiVipBanner.toAssetImageWidget(
+              fit: BoxFit.fill,
+              radius: 20,
+            ),
+            const Positioned(
+              top: 25,
+              left: 22,
+              child: Text(
+                "立即续费AI",
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ),
+            const Positioned(
+              bottom: 25,
+              left: 22,
+              child: Text(
+                "畅想无限次数",
+                style: TextStyle(fontSize: 13, color: Color(0xFF7D8AF0)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   ///构建余额信息

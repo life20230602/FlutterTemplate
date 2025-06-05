@@ -9,6 +9,30 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  errors:
+    prefer_single_quotes: ignore
+    depend_on_referenced_packages: ignore
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.mocks.dart"
+    - "**/generated_plugin_registrant.dart"
+    - "lib/generated/"
+    - "build/"
+    - "ios/**"
+    - "android/**"
+    - "macos/**"
+    - "windows/**"
+    - "web/**"
+    - "plugins/**"
+    - "**/Pods/**"
+    - "**/*.swift"
+    - "**/*.h"
+    - "**/*.m"
+    - "**/*.mm"
+    - "**/*.pbxproj"
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -21,8 +45,43 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # 代码格式化规则
+    # prefer_single_quotes: true  # 已忽略此规则
+    
+    # 依赖相关规则（已忽略）
+    # depend_on_referenced_packages: true  # 已忽略此规则
+    
+    require_trailing_commas: true
+    sort_pub_dependencies: true
+    lines_longer_than_80_chars: false
+    
+    # 代码质量规则
+    avoid_print: false
+    avoid_empty_else: true
+    avoid_relative_lib_imports: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_final_fields: true
+    prefer_final_locals: true
+    prefer_if_null_operators: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    
+    # 命名规则
+    non_constant_identifier_names: true
+    constant_identifier_names: true
+    
+    # 导入规则
+    directives_ordering: true
+    sort_child_properties_last: true
+    
+    # Flutter特定规则
+    use_key_in_widget_constructors: true
+    sized_box_for_whitespace: true
+    avoid_unnecessary_containers: true
+    use_full_hex_values_for_flutter_colors: true
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

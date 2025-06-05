@@ -10,6 +10,7 @@ import 'package:flutter_se/widget/app_divider_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
+import 'free/free_page.dart';
 import 'item_widget.dart';
 import 'zi_xiao_logic.dart';
 
@@ -67,10 +68,11 @@ class ZiXiaoPage extends AppGetXBasePage<ZiXiaoLogic> {
         return ItemWidget(
           entity: logic.itemEntityListObs[index],
           onTap: () {
-            if(!logic.itemEntityListObs[index].permission){
-              Get.to(ZxVipPage());
+            if (!logic.itemEntityListObs[index].permission) {
+              Get.to(FreePage());
               return;
             }
+            Get.to(ZxVipPage());
             //内部跳转，手动管理路由
             navigationKey.currentState!.push(
               GetPageRoute(

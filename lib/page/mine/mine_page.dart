@@ -16,6 +16,7 @@ import 'package:get/get.dart';
 
 import 'invite/invite_page.dart';
 import 'mine_logic.dart';
+import 'widget/history_widget.dart';
 
 ///我的
 class MinePage extends AppGetXBasePage<MineLogic> {
@@ -46,7 +47,9 @@ class MinePage extends AppGetXBasePage<MineLogic> {
               const SizedBox(height: 20),
               _buildBanner(),
               const SizedBox(height: 15),
-              _buildHistory(),
+              _buildHistoryTitle(),
+              const SizedBox(height: 10),
+              const HistoryWidget(),
               const SizedBox(height: 15),
               _buildIconMenu(),
               const SizedBox(height: 15),
@@ -123,19 +126,19 @@ class MinePage extends AppGetXBasePage<MineLogic> {
   }
 
   ///浏览记录
-  Widget _buildHistory() {
+  Widget _buildHistoryTitle() {
     return Row(
       children: [
         AppAsset.assets.imagesIconHistory.toAssetImageWidget(size: 16),
         const SizedBox(width: 5),
-        Expanded(
+        const Expanded(
           child: Text(
             "浏览记录",
             style: TextStyle(fontSize: 14, color: Colors.white),
             strutStyle: StrutStyle(forceStrutHeight: true),
           ),
         ),
-        Icon(Icons.arrow_forward_ios_rounded, color: Colors.white, size: 16),
+        const Icon(Icons.arrow_forward_ios_rounded, color: Colors.white, size: 16),
       ],
     );
   }
