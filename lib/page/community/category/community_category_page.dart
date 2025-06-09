@@ -5,9 +5,11 @@ import 'package:flutter_se/base/logic/app_refresh_helper_mixin.dart';
 import 'package:flutter_se/base/page/app_base_refresh_page.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
 import 'package:flutter_se/page/community/mixin/community_item_mixin.dart';
+import 'package:flutter_se/page/community/tag/community_tag_page.dart';
 import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/widget/component/ad_common_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart';
 
 import 'community_category_logic.dart';
 
@@ -51,31 +53,36 @@ class CommunityCategoryPage
     final tags = ["2", "1", "2", "1", "2", "1"];
     return Container(
       height: 150,
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
       child: AlignedGridView.count(
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
         crossAxisCount: 3,
         itemCount: tags.length,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
-          return Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(
-              color: context.appTheme.secondBgColor,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Column(
-              children: [
-                Text(
-                  tags[0],
-                  style: TextStyle(fontSize: 13, color: Colors.white),
-                ),
-                Text(
-                  tags[0],
-                  style: TextStyle(fontSize: 10, color: Colors.white),
-                ),
-              ],
+          return GestureDetector(
+            onTap: (){
+              Get.to(CommunityTagPage(tagId: 0, tagName: tags[index]));
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              decoration: BoxDecoration(
+                color: context.appTheme.secondBgColor,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    tags[0],
+                    style: const TextStyle(fontSize: 13, color: Colors.white),
+                  ),
+                  Text(
+                    tags[0],
+                    style: const TextStyle(fontSize: 10, color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           );
         },

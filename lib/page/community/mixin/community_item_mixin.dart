@@ -9,6 +9,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
 import '../../../bean/video_list_item_bean.dart';
+import '../community_detail_page.dart';
 import '../widget/community_item_widget.dart';
 
 ///通用的社区列表构建
@@ -18,7 +19,7 @@ mixin CommunityItemMixin on StatelessWidget {
   ///构建sliver模式的列表
   Widget buildSliverMasonryList() {
     return Obx(() {
-      var length = getLogic().itemList.length;
+      final length = getLogic().itemList.length;
       return SliverList(
         delegate: SliverChildBuilderDelegate((context, index) {
           return _buildItem(index);
@@ -42,6 +43,12 @@ mixin CommunityItemMixin on StatelessWidget {
   ///创建item
   Widget _buildItem(int index) {
     final PostListElementExt item = getLogic().itemList[index];
-    return CommunityItemWidget(item);
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: (){
+        Get.to(CommunityDetailPage());
+      },
+      child: CommunityItemWidget(item),
+    );
   }
 }

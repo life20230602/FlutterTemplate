@@ -83,4 +83,6 @@ abstract class AppAsset {
   String get imagesIconCommentSend;
   String get imagesIconAiVipBanner;
   String get imagesIconLikeHand;
+  String get imagesIconCommunityShare;
+  String get imagesIconCommunityStar;
 }

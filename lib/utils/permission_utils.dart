@@ -29,13 +29,13 @@ class PermissionUtils {
           context: Get.context!,
           builder: (context) {
             return CupertinoAlertDialog(
-              title: Text(title,style: TextStyle(
+              title: Text(title,style: const TextStyle(
                 fontSize: 16
               ),),
               content: Text(content),
               actions: <Widget>[
                 CupertinoDialogAction(
-                  child:  Text("取消",style: TextStyle(
+                  child:  const Text("取消",style: TextStyle(
                       fontSize: 15,color: Color(0xffA09F9F)
                   )),
                   onPressed: () {

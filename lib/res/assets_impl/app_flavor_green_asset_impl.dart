@@ -221,4 +221,10 @@ class AppFlavorGreenAssetImpl extends AppAsset {
 
   @override
   String get imagesIconLikeHand => "assets/images/icon_like_hand.svg";
+
+  @override
+  String get imagesIconCommunityShare => "assets/images/icon_community_share.svg";
+
+  @override
+  String get imagesIconCommunityStar => "assets/images/icon_community_star.svg";
 }

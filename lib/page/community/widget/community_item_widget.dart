@@ -8,6 +8,7 @@ import '../../../res/app_asset.dart';
 import '../../../utils/image_utils.dart';
 import '../../../utils/int_convert_utils.dart';
 import '../../../widget/mix_icon_text.dart';
+import '../bloghost_page.dart';
 import '../entity/post_list_element_ext.dart';
 
 typedef OnBlogItemClick = void Function(PostListElementExt item);
@@ -19,40 +20,31 @@ class CommunityItemWidget extends StatelessWidget {
   const CommunityItemWidget(
     this.item, {
     super.key,
-    this.onBlogItemClick,
     this.onFollowClick,
     this.onLikeClick,
   });
 
   final PostListElementExt item;
-  final OnBlogItemClick? onBlogItemClick;
   final OnLikeClick? onLikeClick;
   final OnFollowClick? onFollowClick;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        if (onBlogItemClick != null) {
-          onBlogItemClick!(item);
-        }
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _topWidget(context),
-            _midWidget(),
-            _titleWidget(context),
-            const SizedBox(height: 10,),
-            _bottomOther(context),
-            const SizedBox(height: 10,),
-            AppDividerWidget(
-              color: Color(0xFF313131),
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _topWidget(context),
+          _midWidget(),
+          _titleWidget(context),
+          const SizedBox(height: 10,),
+          _bottomOther(context),
+          const SizedBox(height: 10,),
+          const AppDividerWidget(
+            color: Color(0xFF313131),
+          ),
+        ],
       ),
     );
   }
@@ -67,6 +59,7 @@ class CommunityItemWidget extends StatelessWidget {
           GestureDetector(
             onTap: () {
               /// 跳转博主的主页
+              Get.to(BloghostPage());
             },
             child: ImageUtils.loadEncryptImage(
               item.bloggerAvatar,
