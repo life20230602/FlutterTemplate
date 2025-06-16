@@ -6,9 +6,12 @@ import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/utils/image_utils.dart';
 import 'package:flutter_se/widget/component/app_button_widget.dart';
+import 'package:flutter_se/widget/component/app_title_right_button_widget.dart';
+import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import 'invite_logic.dart';
+import 'invite_record_page.dart';
 
 ///邀请好友界面
 class InvitePage extends AppGetXBasePage<InviteLogic> {
@@ -26,11 +29,9 @@ class InvitePage extends AppGetXBasePage<InviteLogic> {
   @override
   List<Widget>? titleActions() {
     return [
-      Text(
-        "邀请记录",
-        strutStyle: StrutStyle(forceStrutHeight: true),
-        style: TextStyle(fontSize: 15, color: context.appTheme.titleTextColor),
-      ),
+     AppTitleRightButtonWidget(text: "邀请记录", onTap: (){
+       Get.to(CoinChargeRecordPage());
+     })
     ];
   }
 

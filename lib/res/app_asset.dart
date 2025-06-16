@@ -5,14 +5,19 @@ abstract class AppAsset {
   static AppAsset get assets => Flavors().getAppAsset();
 
   String get imagesMainBottomIcon1Default;
+  String get imagesMainBottomIcon1Active;
 
   String get imagesMainBottomIcon2Default;
+  String get imagesMainBottomIcon2Active;
 
   String get imagesMainBottomIcon3Default;
+  String get imagesMainBottomIcon3Active;
 
   String get imagesMainBottomIcon4Default;
+  String get imagesMainBottomIcon4Active;
 
   String get imagesMainBottomIcon5Default;
+  String get imagesMainBottomIcon5Active;
 
   String get imagesIconMuYinTitleMenu;
 

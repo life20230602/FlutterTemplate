@@ -49,7 +49,7 @@ class AppGreenThemeImpl extends AppTheme {
   Color get dividerColor => const Color(0xFFDADADA);
 
   @override
-  Color get appRed => const Color(0xFFFF3A30);
+  Color get appRed => const Color(0xFFB70303);
 
   @override
   Color get appBottomBarBgColor => Colors.black;
@@ -58,7 +58,10 @@ class AppGreenThemeImpl extends AppTheme {
   Color get appBackButtonColor => Colors.white;
 
   @override
-  Color get secondBgColor => Color(0xFF232527);
+  Color get secondBgColor => const Color(0xFF232527);
+
+  @override
+  Color get itemBgColor => const Color(0xFF1C1D1E);
 
   @override
   List<Color> get videoPermissionCoinBgColor => [

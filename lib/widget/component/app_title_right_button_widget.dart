@@ -15,10 +15,10 @@ class AppTitleRightButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Text(
-        "作品记录",
-        strutStyle: StrutStyle(forceStrutHeight: true),
+        text,
+        strutStyle: const StrutStyle(forceStrutHeight: true),
         style: TextStyle(fontSize: 15, color: context.appTheme.titleTextColor),
       ),
     );

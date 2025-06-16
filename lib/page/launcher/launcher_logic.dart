@@ -37,8 +37,7 @@ class LauncherLogic extends AppGetXBaseLogic {
       NavigationItem(
         "母淫",
         defaultImage: AppAsset.assets.imagesMainBottomIcon1Default,
-        activeImage: AppAsset.assets.imagesMainBottomIcon1Default,
-        activeColor: Get.context!.appTheme.primary,
+        activeImage: AppAsset.assets.imagesMainBottomIcon1Active,
         body: Navigator(
           key: muYinNavigatorKey,
           onGenerateRoute: (settings) {
@@ -59,8 +58,7 @@ class LauncherLogic extends AppGetXBaseLogic {
       NavigationItem(
         "子笑",
         defaultImage: AppAsset.assets.imagesMainBottomIcon2Default,
-        activeImage: AppAsset.assets.imagesMainBottomIcon2Default,
-        activeColor: Get.context!.appTheme.primary,
+        activeImage: AppAsset.assets.imagesMainBottomIcon2Active,
         body: Navigator(
           key: ziXiaoNavigatorKey,
           onGenerateRoute: (settings) {
@@ -81,8 +79,7 @@ class LauncherLogic extends AppGetXBaseLogic {
       NavigationItem(
         "短视频",
         defaultImage: AppAsset.assets.imagesMainBottomIcon3Default,
-        activeImage: AppAsset.assets.imagesMainBottomIcon3Default,
-        activeColor: Get.context!.appTheme.primary,
+        activeImage: AppAsset.assets.imagesMainBottomIcon3Active,
         body: ShortVideoPage(),
       ),
     );
@@ -90,8 +87,7 @@ class LauncherLogic extends AppGetXBaseLogic {
       NavigationItem(
         "社区",
         defaultImage: AppAsset.assets.imagesMainBottomIcon4Default,
-        activeImage: AppAsset.assets.imagesMainBottomIcon4Default,
-        activeColor: Get.context!.appTheme.primary,
+        activeImage: AppAsset.assets.imagesMainBottomIcon4Active,
         body: CommunityPage(),
       ),
     );
@@ -99,8 +95,7 @@ class LauncherLogic extends AppGetXBaseLogic {
       NavigationItem(
         "我的",
         defaultImage: AppAsset.assets.imagesMainBottomIcon5Default,
-        activeImage: AppAsset.assets.imagesMainBottomIcon5Default,
-        activeColor: Get.context!.appTheme.primary,
+        activeImage: AppAsset.assets.imagesMainBottomIcon5Active,
         body: MinePage(),
       ),
     );

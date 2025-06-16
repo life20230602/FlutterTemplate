@@ -5,22 +5,37 @@ class AppFlavorGreenAssetImpl extends AppAsset {
   @override
   String imagesMainBottomIcon1Default =
       'assets/images/main_bottom_icon_1_default.svg';
+  @override
+  String imagesMainBottomIcon1Active =
+      'assets/images/main_bottom_icon_1_active.svg';
 
   @override
   String imagesMainBottomIcon2Default =
       'assets/images/main_bottom_icon_2_default.svg';
 
   @override
+  String imagesMainBottomIcon2Active =
+      'assets/images/main_bottom_icon_2_active.svg';
+  @override
   String imagesMainBottomIcon3Default =
       'assets/images/main_bottom_icon_3_default.svg';
-
+  @override
+  String imagesMainBottomIcon3Active =
+      'assets/images/main_bottom_icon_3_active.svg';
   @override
   String imagesMainBottomIcon4Default =
       'assets/images/main_bottom_icon_4_default.svg';
+  @override
+  String imagesMainBottomIcon4Active =
+      'assets/images/main_bottom_icon_4_active.svg';
 
   @override
   String imagesMainBottomIcon5Default =
-      'assets/images/main_bottom_icon_5_default.svg';
+      'assets/images/main_bottom_icon_5_default.png';
+
+  @override
+  String imagesMainBottomIcon5Active =
+      'assets/images/main_bottom_icon_5_active.png';
 
   @override
   String imagesIconMuYinTitleMenu = "assets/images/icon_muyin_title_menu.png";
@@ -202,13 +217,16 @@ class AppFlavorGreenAssetImpl extends AppAsset {
   String get imagesIconAiStripDest => "assets/images/icon_ai_strip_dest.png";
 
   @override
-  String get imagesIconAiStripSource => "assets/images/icon_ai_strip_source.png";
+  String get imagesIconAiStripSource =>
+      "assets/images/icon_ai_strip_source.png";
 
   @override
-  String get imagesIconVipChargeBanner => "assets/images/icon_vip_charge_banner.png";
+  String get imagesIconVipChargeBanner =>
+      "assets/images/icon_vip_charge_banner.png";
 
   @override
-  String get imagesIconZixiaoCoverTop => "assets/images/icon_zixiao_cover_top.png";
+  String get imagesIconZixiaoCoverTop =>
+      "assets/images/icon_zixiao_cover_top.png";
 
   @override
   String get imagesIconZixiaoXiaoXue => "assets/images/icon_zixiao_xiaoxue.jpg";
@@ -223,7 +241,8 @@ class AppFlavorGreenAssetImpl extends AppAsset {
   String get imagesIconLikeHand => "assets/images/icon_like_hand.svg";
 
   @override
-  String get imagesIconCommunityShare => "assets/images/icon_community_share.svg";
+  String get imagesIconCommunityShare =>
+      "assets/images/icon_community_share.svg";
 
   @override
   String get imagesIconCommunityStar => "assets/images/icon_community_star.svg";

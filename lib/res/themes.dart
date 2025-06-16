@@ -53,6 +53,9 @@ abstract class AppTheme {
   ///二级背景色
   Color get secondBgColor;
 
+  ///item 背景色
+  Color get itemBgColor;
+
   //视频免费权限
   List<Color> get videoPermissionFreeBgColor;
 

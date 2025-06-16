@@ -9,12 +9,14 @@ import 'package:flutter_se/utils/image_utils.dart';
 import 'package:flutter_se/widget/app_divider_widget.dart';
 import 'package:flutter_se/widget/component/ad_common_widget.dart';
 import 'package:flutter_se/widget/component/app_button_widget.dart';
+import 'package:flutter_se/widget/component/app_title_right_button_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
 import '../widget/bottom_pay_button_widget.dart';
 import 'coin_charge_item_widget.dart';
 import 'coin_charge_logic.dart';
+import 'coin_charge_record_page.dart';
 
 /// 金币充值
 class CoinChargePage extends AppGetXBasePage<CoinChargeLogic> {
@@ -29,10 +31,11 @@ class CoinChargePage extends AppGetXBasePage<CoinChargeLogic> {
   @override
   List<Widget>? titleActions() {
     return [
-      Text(
-        "充值明细",
-        strutStyle: StrutStyle(forceStrutHeight: true),
-        style: TextStyle(fontSize: 15, color: context.appTheme.titleTextColor),
+      AppTitleRightButtonWidget(
+        text: "充值明细",
+        onTap: () {
+          Get.to(CoinChargeRecordPage());
+        },
       ),
     ];
   }
@@ -40,38 +43,46 @@ class CoinChargePage extends AppGetXBasePage<CoinChargeLogic> {
   @override
   Widget buildChild(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildTop(),
-          const SizedBox(height: 15,),
+          const SizedBox(height: 15),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
                 color: context.appTheme.secondBgColor,
-                borderRadius: BorderRadius.circular(10)
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 15,),
-                  Text("官方推荐",style: TextStyle(fontSize: 15,color: context.appTheme.whiteColor),),
-                  const SizedBox(height: 15,),
-                  Expanded(child: AlignedGridView.count(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    itemBuilder: (context, index) {
-                      return _buildCoinItem(index);
-                    },
-                  ))
+                  const SizedBox(height: 15),
+                  Text(
+                    "官方推荐",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: context.appTheme.whiteColor,
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  Expanded(
+                    child: AlignedGridView.count(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      itemBuilder: (context, index) {
+                        return _buildCoinItem(index);
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-          BottomPayButtonWidget(text: '立即充值￥50',),
+          BottomPayButtonWidget(text: '立即充值￥50'),
         ],
       ),
     );
@@ -80,10 +91,13 @@ class CoinChargePage extends AppGetXBasePage<CoinChargeLogic> {
   ///金币 item
   Widget _buildCoinItem(index) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         logic.selectedItemObs.value = index;
       },
-      child: Obx(()=>CoinChargeItemWidget(checked: logic.selectedItemObs.value == index,)),
+      child: Obx(
+        () =>
+            CoinChargeItemWidget(checked: logic.selectedItemObs.value == index),
+      ),
     );
   }
 
