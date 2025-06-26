@@ -155,7 +155,7 @@ mixin BasePage on StatelessWidget {
 
   ///返回按键宽度
   double? backWidth() {
-    return 60;
+    return 50;
   }
 
   /// 返回按钮的颜色

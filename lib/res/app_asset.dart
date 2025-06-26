@@ -90,4 +90,8 @@ abstract class AppAsset {
   String get imagesIconLikeHand;
   String get imagesIconCommunityShare;
   String get imagesIconCommunityStar;
+  String get imagesIconSearchHotTag;
+  String get imagesIconSearchHot1;
+  String get imagesIconSearchHot2;
+  String get imagesIconSearchHot3;
 }

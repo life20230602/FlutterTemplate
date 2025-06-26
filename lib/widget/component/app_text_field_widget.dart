@@ -17,6 +17,7 @@ class AppTextFieldWidget extends StatelessWidget {
     this.hint,
     this.hintStyle,
     this.obscureText = false,
+    this.readonly = false,
     this.inputFormatters,
     this.inputType = TextInputType.text,
   });
@@ -36,6 +37,7 @@ class AppTextFieldWidget extends StatelessWidget {
   final TextInputType inputType;
   final List<TextInputFormatter>? inputFormatters;
   final TextEditingController? controller;
+  final bool readonly;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,7 @@ class AppTextFieldWidget extends StatelessWidget {
       keyboardType: inputType,
       cursorColor: context.appTheme.primary,
       controller: controller,
+      readOnly: readonly,
       style:
           style ??
           TextStyle(fontSize: textSize, color: context.appTheme.blackColor),

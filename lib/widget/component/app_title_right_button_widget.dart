@@ -7,9 +7,11 @@ class AppTitleRightButtonWidget extends StatelessWidget {
     super.key,
     required this.text,
     required this.onTap,
+    this.textColor
   });
 
   final String text;
+  final Color? textColor;
   final Function() onTap;
 
   @override
@@ -19,7 +21,7 @@ class AppTitleRightButtonWidget extends StatelessWidget {
       child: Text(
         text,
         strutStyle: const StrutStyle(forceStrutHeight: true),
-        style: TextStyle(fontSize: 15, color: context.appTheme.titleTextColor),
+        style: TextStyle(fontSize: 15, color: textColor ?? context.appTheme.titleTextColor),
       ),
     );
   }

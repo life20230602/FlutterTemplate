@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_se/page/common/fuli/fu_li_page.dart';
+import 'package:flutter_se/page/search/search_page.dart';
 import 'package:flutter_se/utils/image_utils.dart';
 import 'package:get/get.dart';
 
@@ -17,9 +18,17 @@ class AppCommonSearchHeadWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(width: 10),
-        if (showBack) AppBackButton(),
-        Expanded(child: SearchWidget()),
+        const SizedBox(width: 10),
+        if (showBack) const AppBackButton(),
+        Expanded(
+          child: GestureDetector(
+            behavior: HitTestBehavior.deferToChild,
+            onTap: () {
+              Get.to(SearchPage());
+            },
+            child: const SearchWidget(),
+          ),
+        ),
         const SizedBox(width: 10),
         GestureDetector(
           onTap: () {
