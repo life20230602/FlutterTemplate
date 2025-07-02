@@ -20,8 +20,15 @@ class ItemWidget extends StatelessWidget {
       children: [
         _buildImage(context),
         const SizedBox(height: 2),
-        Text(entity.title, style: TextStyle(fontSize: 13, color: Colors.white)),
-        Text(entity.desc, style: TextStyle(fontSize: 11, color: Colors.white)),
+        Text(
+          entity.title,
+          style: const TextStyle(fontSize: 13, color: Colors.white),
+        ),
+        if(entity.desc.isNotEmpty)
+          Text(
+            entity.desc,
+            style: const TextStyle(fontSize: 11, color: Colors.white),
+          ),
         Text(
           entity.desc2,
           style: TextStyle(fontSize: 11, color: context.appTheme.primary),
@@ -29,19 +36,19 @@ class ItemWidget extends StatelessWidget {
         GestureDetector(
           onTap: onTap,
           child: Container(
-            margin: EdgeInsets.only(top: 7),
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+            margin: const EdgeInsets.only(top: 7),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
             decoration: BoxDecoration(
               color:
                   entity.permission
-                      ? Color(0xFFF7C900)
+                      ? const Color(0xFFF7C900)
                       : context.appTheme.primary,
               borderRadius: BorderRadius.circular(55),
             ),
             child: Text(
               entity.button,
-              style: TextStyle(fontSize: 11, color: Colors.black),
-              strutStyle: StrutStyle(forceStrutHeight: true),
+              style: const TextStyle(fontSize: 11, color: Colors.black),
+              strutStyle: const StrutStyle(forceStrutHeight: true),
             ),
           ),
         ),
@@ -52,13 +59,13 @@ class ItemWidget extends StatelessWidget {
   ///图片
   Widget _buildImage(BuildContext context) {
     return Container(
-      width: 102,
+      width: 98,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
-      height: 102,
+      height: 98,
       child: Stack(
         children: [
-          AppAsset.assets.imagesIconZixiaoXiaoXue.toAssetImageWidget(size: 102),
+          AppAsset.assets.imagesIconZixiaoXiaoXue.toAssetImageWidget(size: 98),
           _buildShadow(context),
         ],
       ),

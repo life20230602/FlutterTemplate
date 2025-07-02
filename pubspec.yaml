@@ -54,7 +54,8 @@ dependencies:
   #轮播
   card_swiper: ^3.0.0
   # 打开外部应用
-  url_launcher: ^6.2.5
+  url_launcher:
+    path: plugins/url_launcher
   # 设备信息
   device_info_plus: ^11.3.0
   package_info_plus: ^8.0.2

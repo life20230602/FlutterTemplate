@@ -47,16 +47,16 @@ class InvitePage extends AppGetXBasePage<InviteLogic> {
             const SizedBox(height: 15),
             _buildShareButtons(),
             const SizedBox(height: 30),
-            Text("规则说明：", style: TextStyle(color: Colors.white, fontSize: 17)),
+            const Text("规则说明：", style: TextStyle(color: Colors.white, fontSize: 17)),
             const SizedBox(height: 6),
-            Text(
+            const Text(
               "1.邀请1名好友成功注册即可获得3天VIP，邀请人数无上限；\n"
               "2.邀请说明：点击【保存二维码】或【复制推广链接】获得专属推广链接，推荐分享给其他人下载即可；\n"
               "3.禁止使用非法程序恶意套利，一经发现，账号将永久查封。",
               style: TextStyle(color: Colors.white, fontSize: 14),
             ),
             const SizedBox(height: 15),
-            Center(
+            const Center(
               child: Text(
                 "邀请步骤",
                 style: TextStyle(color: Colors.white, fontSize: 17),
@@ -115,7 +115,7 @@ class InvitePage extends AppGetXBasePage<InviteLogic> {
     return RepaintBoundary(
       key: logic.widgetToImageController.containerKey,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+        padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
         child: AspectRatio(
           aspectRatio: 640 / 665,
           child: Stack(
@@ -143,7 +143,7 @@ class InvitePage extends AppGetXBasePage<InviteLogic> {
                     ),
                   ),
                   const SizedBox(height: 6),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 13),
                     child: DottedLine(
                       direction: Axis.horizontal,
@@ -178,12 +178,12 @@ class InvitePage extends AppGetXBasePage<InviteLogic> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("累计邀请", style: TextStyle(fontSize: 16, color: Colors.white)),
+        const Text("累计邀请", style: TextStyle(fontSize: 16, color: Colors.white)),
         Text(
           " 0 ",
           style: TextStyle(fontSize: 18, color: context.appTheme.primary),
         ),
-        Text("人", style: TextStyle(fontSize: 18, color: Colors.white)),
+        const Text("人", style: TextStyle(fontSize: 18, color: Colors.white)),
       ],
     );
   }
@@ -196,7 +196,7 @@ class InvitePage extends AppGetXBasePage<InviteLogic> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "去查看",
             style: TextStyle(color: Colors.white, fontSize: 14),
             strutStyle: StrutStyle(forceStrutHeight: true),

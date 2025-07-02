@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="flutter">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>支付</title>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        window.addEventListener('message', function(event) {
+          let data = JSON.stringify(event.data);
+          if(data.indexOf("http") == 1){
+            location.href = event.data;
+          }
+        });
+    </script>
+</head>
+<body>
+    <div id="tips"
+         style="font-size:20px;color:black; text-align:center; height:100vh;vertical-align:middle;">
+        <div style="position:relative;top:45%">
+            正在获取支付链接，请稍后...
+        </div>
+    </div>
+</body>
+</html>
+

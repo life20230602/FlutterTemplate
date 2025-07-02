@@ -77,7 +77,7 @@ class LauncherLogic extends AppGetXBaseLogic {
     );
     menuListObs.add(
       NavigationItem(
-        "短视频",
+        "抖阴",
         defaultImage: AppAsset.assets.imagesMainBottomIcon3Default,
         activeImage: AppAsset.assets.imagesMainBottomIcon3Active,
         body: ShortVideoPage(),
@@ -85,7 +85,7 @@ class LauncherLogic extends AppGetXBaseLogic {
     );
     menuListObs.add(
       NavigationItem(
-        "社区",
+        "狼窝",
         defaultImage: AppAsset.assets.imagesMainBottomIcon4Default,
         activeImage: AppAsset.assets.imagesMainBottomIcon4Active,
         body: CommunityPage(),

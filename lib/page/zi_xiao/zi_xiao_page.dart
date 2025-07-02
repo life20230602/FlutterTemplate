@@ -32,23 +32,23 @@ class ZiXiaoPage extends AppGetXBasePage<ZiXiaoLogic> {
   @override
   Widget buildChild(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Column(
         children: [
           const SizedBox(height: 10),
           AspectRatio(
-            aspectRatio: 629 / 370,
+            aspectRatio: 629 / 340,
             child:
                 AppAsset.assets.imagesIconZixiaoCoverTop.toAssetImageWidget(),
           ),
           const SizedBox(height: 14),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 14),
             child: AppDividerWidget(color: context.appTheme.primary),
           ),
           const SizedBox(height: 9),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 50),
             child: AppDividerWidget(color: context.appTheme.primary),
           ),
           const SizedBox(height: 12),
@@ -62,8 +62,7 @@ class ZiXiaoPage extends AppGetXBasePage<ZiXiaoLogic> {
     return AlignedGridView.count(
       itemCount: logic.itemEntityListObs.length,
       crossAxisCount: 3,
-      mainAxisSpacing: 26,
-      crossAxisSpacing: 8,
+      mainAxisSpacing: 20,
       itemBuilder: (context, index) {
         return ItemWidget(
           entity: logic.itemEntityListObs[index],

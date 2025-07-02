@@ -6,8 +6,10 @@ import 'package:flutter_se/base/page/app_getx_base_page.dart';
 import 'package:flutter_se/res/app_asset.dart';
 import 'package:flutter_se/res/app_theme.dart';
 import 'package:flutter_se/utils/image_utils.dart';
+import 'package:flutter_se/utils/uri_utils.dart';
 import 'package:flutter_se/widget/widget_utils.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DialogBottomPayLogic extends AppGetXBaseLogic {
   ///0表示支付宝 1表示微信
@@ -31,10 +33,10 @@ class DialogBottomPay extends AppGetXBasePage<DialogBottomPayLogic> {
   @override
   Widget buildChild(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 25, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 12),
       decoration: BoxDecoration(
         color: context.appTheme.secondBgColor,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(10),
           topRight: Radius.circular(10),
         ),
@@ -42,7 +44,7 @@ class DialogBottomPay extends AppGetXBasePage<DialogBottomPayLogic> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text("选择支付方式", style: TextStyle(fontSize: 21, color: Colors.white)),
+          const Text("选择支付方式", style: TextStyle(fontSize: 21, color: Colors.white)),
           const SizedBox(height: 18),
           _buildRow("已开通会员金额", "50元", Colors.white),
           const SizedBox(height: 15),
@@ -54,7 +56,15 @@ class DialogBottomPay extends AppGetXBasePage<DialogBottomPayLogic> {
           const SizedBox(height: 15),
           _buildPayRow(1, AppAsset.assets.imagesIconWechat, "微信"),
           const SizedBox(height: 18),
-          toAppButton2("立即支付 ¥150"),
+          toAppButton2("立即支付 ¥150",onTap: (){
+            preLaunchUrl();
+            Future.delayed(Duration(seconds: 2),(){
+              "https://baidu.com".openUrl();
+            });
+            Future.delayed(Duration(seconds: 10),(){
+              closePreLaunchUrl();
+            });
+          }),
         ],
       ),
     );
@@ -66,7 +76,7 @@ class DialogBottomPay extends AppGetXBasePage<DialogBottomPayLogic> {
         logic.payMethodObs.value = index;
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 5),
+        padding: const EdgeInsets.symmetric(vertical: 5),
         child: Obx(
           () => Row(
             children: [
@@ -75,7 +85,7 @@ class DialogBottomPay extends AppGetXBasePage<DialogBottomPayLogic> {
               Expanded(
                 child: Text(
                   text,
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: const TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
               if (index == logic.payMethodObs.value)
