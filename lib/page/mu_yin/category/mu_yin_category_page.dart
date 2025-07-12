@@ -14,7 +14,7 @@ class MuYinChildPage extends AppGetXBasePage<MuYinChildLogic> {
     required this.muYinNavigatorKey,
   });
 
-  ///1  千万视频  2 会员特权
+  ///1  千万视频  2 暗网天堂
   final int type;
 
   ///导航路由 key
@@ -44,7 +44,7 @@ class MuYinChildPage extends AppGetXBasePage<MuYinChildLogic> {
           ),
         );
       },
-      child: Text("data"),
+      child: Text("data==$type"),
     );
   }
 }

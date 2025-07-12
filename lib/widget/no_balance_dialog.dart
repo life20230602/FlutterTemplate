@@ -25,37 +25,37 @@ class NoBalanceDialog extends AppBasePage {
       backgroundColor: context.appTheme.secondBgColor,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 25, horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            const Text(
               "金币不足",
               style: TextStyle(color: Colors.white, fontSize: 20),
               strutStyle: StrutStyle(forceStrutHeight: true),
             ),
             const SizedBox(height: 25),
-            Text(
+            const Text(
               "您观看的此视频需要金币购买",
               style: TextStyle(color: Colors.white, fontSize: 16),
               strutStyle: StrutStyle(forceStrutHeight: true),
             ),
             const SizedBox(height: 10),
-            Text(
+            const Text(
               "一次购买 永久免费看",
               style: TextStyle(color: Color(0xFFA1A1A1), fontSize: 16),
               strutStyle: StrutStyle(forceStrutHeight: true),
             ),
             ShaderMask(
               shaderCallback: (Rect bounds) {
-                return LinearGradient(
+                return const LinearGradient(
                   colors: [Color(0xFFFFE7C3), Color(0xFFEFB96F)],
                 ).createShader(bounds);
               },
               blendMode: BlendMode.srcATop,
-              child: Text("20 金币", style: TextStyle(fontSize: 21)),
+              child: const Text("20 金币", style: TextStyle(fontSize: 21)),
             ),
-            Text(
+            const Text(
               "可用金币: 10金币",
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
@@ -76,7 +76,7 @@ class NoBalanceDialog extends AppBasePage {
             text: "前往充值",
             textSize: 16,
             height: 41,
-            gradient: [Color(0xFF3CA55C), Color(0xFFB5AC49)],
+            gradient: const [Color(0xFF3CA55C), Color(0xFFB5AC49)],
             onTap: (){
               //跳转充值
             },
