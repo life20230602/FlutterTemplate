@@ -15,7 +15,12 @@ class AdBannerLogic extends AppGetXBaseLogic {
 
 ///广告轮播图组件
 class AdBannerWidget extends AppGetXBasePage<AdBannerLogic> {
-  AdBannerWidget({this.onTap, this.adList, this.adHeight = AD_SIZE_LARGE, super.key});
+  AdBannerWidget({
+    this.onTap,
+    this.adList,
+    this.adHeight = AD_SIZE_LARGE,
+    super.key,
+  });
 
   static const double AD_SIZE_LARGE = 150;
   static const double AD_SIZE_SMALL = 75;
@@ -40,10 +45,7 @@ class AdBannerWidget extends AppGetXBasePage<AdBannerLogic> {
       return Container(height: adHeight);
     }
     if (adHeight != 0) {
-      return SizedBox(
-        height: adHeight,
-        child: _buildBody(context),
-      );
+      return SizedBox(height: adHeight, child: _buildBody(context));
     }
     return _buildBody(context);
   }
@@ -69,9 +71,13 @@ class AdBannerWidget extends AppGetXBasePage<AdBannerLogic> {
         var item = adBean[index];
         return GestureDetector(
           child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: ImageUtils.loadEncryptImage(item.image,
-                  radius: 10, fit: BoxFit.fill)),
+            width: MediaQuery.of(context).size.width,
+            child: ImageUtils.loadEncryptImage(
+              item.cover,
+              radius: 10,
+              fit: BoxFit.fill,
+            ),
+          ),
           onTap: () {
             _onTab(item);
           },
@@ -86,13 +92,14 @@ class AdBannerWidget extends AppGetXBasePage<AdBannerLogic> {
   Widget _buildSingleAd(AdInfoBean adBean, BuildContext context) {
     return GestureDetector(
       child: SizedBox(
-          height: adHeight,
-          width: MediaQuery.of(context).size.width,
-          child: ImageUtils.loadEncryptImage(
-            fit: BoxFit.fill,
-            adBean.image,
-            radius: 10,
-          )),
+        height: adHeight,
+        width: MediaQuery.of(context).size.width,
+        child: ImageUtils.loadEncryptImage(
+          fit: BoxFit.fill,
+          adBean.cover,
+          radius: 10,
+        ),
+      ),
       onTap: () {
         _onTab(adBean);
       },
@@ -100,6 +107,8 @@ class AdBannerWidget extends AppGetXBasePage<AdBannerLogic> {
   }
 
   _onTab(AdInfoBean item) {
-    item.getOpenUrl().openUrl();
+    if(item.action == "url") {
+      item.url.openUrl();
+    }
   }
 }

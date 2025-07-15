@@ -20,14 +20,14 @@ mixin DomainSelectionMixin {
   requestHost() async {
     //如果存在配置，配置优先
     if (kDebugMode) {
-      onSelectionSuccess("https://1");
+      onSelectionSuccess("https://myzxapi.wcn50.com");
       return;
     }
     if (kIsWeb) {
       onSelectionSuccess("https://${Uri.base.host}");
       return;
     }
-    var pingDio = BaseDio.getInstance().getPingDio();
+    final pingDio = BaseDio.getInstance().getPingDio();
     pingDio.options.validateStatus = (status) {
       return status == 200 || (status! >= 400 && status <= 500);
     };
@@ -41,7 +41,7 @@ mixin DomainSelectionMixin {
         return;
       }
       //选择api
-      String? ret = await _checkLine(pingDio, data["domain"]);
+      final ret = await _checkLine(pingDio, data["domain"]);
       if (ret != null && ret.isNotEmpty) {
         onSelectionProgress("线路$_lineIndex检测成功");
         onSelectionSuccess(ret);
@@ -62,8 +62,8 @@ mixin DomainSelectionMixin {
       pingDio.get(bucket, cancelToken: bucketCancelToken).then((value) {
         if (value.statusCode == 200) {
           bucketCancelToken.cancel();
-          var decryptHostData = (value.data as Uint8List).decryptHostData();
-          var data = jsonDecode(decryptHostData);
+          final decryptHostData = (value.data as Uint8List).decryptHostData();
+          final data = jsonDecode(decryptHostData);
           if (!isCallback) {
             isCallback = true;
             callback(data);

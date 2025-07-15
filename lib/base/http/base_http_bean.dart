@@ -22,7 +22,7 @@ class HttpBean {
       json = jsonDecode(json);
     }
     code = json['code'] as int?;
-    msg = json['msg'];
+    msg = json['message'];
     data = json['data'];
   }
 }

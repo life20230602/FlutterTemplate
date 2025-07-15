@@ -21,19 +21,19 @@ class ResultInterceptor extends Interceptor {
     if (response.statusCode != 200) {
       throw HttpException(response.statusMessage ?? "网络异常");
     }
-    // var httpBean = HttpBean.fromJson(response.data);
-    // if (!httpBean.isSuccess()) {
-    //   if (kDebugMode) {
-    //     print("result=>${httpBean.code}====${httpBean.msg}");
-    //   }
-    //   throw AppServerException(code: httpBean.code, message: httpBean.msg);
-    // }
-    // //解密数据
-    // if (ApiManager.isDecrypt) {
-    //   response.data = jsonDecode(httpBean.data.toString().decryptApiData());
-    // } else {
-    //   response.data = httpBean.data;
-    // }
+    final httpBean = HttpBean.fromJson(response.data);
+    if (!httpBean.isSuccess()) {
+      if (kDebugMode) {
+        print("result=>${httpBean.code}====${httpBean.msg}");
+      }
+      throw AppServerException(code: httpBean.code, message: httpBean.msg);
+    }
+    //解密数据
+    if (ApiManager.isDecrypt) {
+      response.data = jsonDecode(httpBean.data.toString().decryptApiData());
+    } else {
+      response.data = httpBean.data;
+    }
     if (kDebugMode) {
       print("result=>${response.data}");
     }

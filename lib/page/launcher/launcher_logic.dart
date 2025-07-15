@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_se/base/logic/app_base_logic.dart';
+import 'package:flutter_se/base/logic/app_exception_extension.dart';
 import 'package:flutter_se/page/community/community_page.dart';
 import 'package:flutter_se/page/mine/mine_page.dart';
 import 'package:flutter_se/page/mu_yin/mu_yin_page.dart';
 import 'package:flutter_se/page/short_video/short_video_page.dart';
 import 'package:flutter_se/page/zi_xiao/zi_xiao_page.dart';
-import 'package:flutter_se/res/app_theme.dart';
-import 'package:flutter_se/utils/app_dialog_utils.dart';
 import 'package:get/get.dart';
 
 import '../../res/app_asset.dart';

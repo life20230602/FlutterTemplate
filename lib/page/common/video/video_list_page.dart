@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_se/base/page/app_getx_base_page.dart';
-import 'package:flutter_se/res/app_asset.dart';
-import 'package:flutter_se/utils/image_utils.dart';
-import 'package:flutter_se/widget/component/app_back_button_widget.dart';
-import 'package:flutter_se/widget/component/search_widget.dart';
 import 'package:flutter_se/widget/widget_utils.dart';
 
 import '../../../widget/ticker_provider.dart';

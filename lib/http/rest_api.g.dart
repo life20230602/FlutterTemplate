@@ -19,7 +19,7 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<UserInfoBean> login(
+  Future<UserInfoBean> getUserInfo(
     CancelToken cancelToken,
     Map<String, dynamic> map,
   ) async {
@@ -36,7 +36,7 @@ class _RestClient implements RestClient {
     )
             .compose(
               _dio.options,
-              'v1/user/login',
+              '/api/v1/users/',
               queryParameters: queryParameters,
               data: _data,
               cancelToken: cancelToken,
@@ -47,6 +47,38 @@ class _RestClient implements RestClient {
               baseUrl,
             ))));
     final value = UserInfoBean.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<MainTabConfigBean> getHomeTab(
+    CancelToken cancelToken,
+    Map<String, dynamic> map,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(map);
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<MainTabConfigBean>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/v1/category',
+              queryParameters: queryParameters,
+              data: _data,
+              cancelToken: cancelToken,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = MainTabConfigBean.fromJson(_result.data!);
     return value;
   }
 

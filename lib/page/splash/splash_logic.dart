@@ -1,17 +1,14 @@
 import 'package:flutter_se/base/logic/app_base_logic.dart';
 import 'package:flutter_se/bean/ad_info_bean.dart';
-import 'package:flutter_se/bean/user_info_bean.dart';
-import 'package:flutter_se/config/app_config_utils.dart';
-import 'package:flutter_se/config/user_manager_utils.dart';
-import 'package:flutter_se/page/common/mixin/user_info_mixin.dart';
 import 'package:flutter_se/page/splash/domain_selection_mixin.dart';
 import 'package:get/get.dart';
 
 import '../../base/http/exception/app_server_exception.dart';
 import '../../http/rest_api_manager.dart';
+import '../common/mixin/main_tab_config_load_mixin.dart';
 
 class SplashLogic extends AppGetXBaseLogic
-    with DomainSelectionMixin, UserInfoMixin {
+    with DomainSelectionMixin, MainTabConfigLoadMixin {
   //ui更新文本，通过obs关联刷新
   var lineTextObs = "检测线路".obs;
 
@@ -44,24 +41,17 @@ class SplashLogic extends AppGetXBaseLogic
   void onSelectionSuccess(String baseUrl) async {
     //初始化网络请求
     ApiManager().initClient(baseUrl);
-    configSuccessObs.value = true;
+    loadMainTabConfig();
   }
 
-  ///游客登录系统
-  void _guestLogin() {}
-
   @override
-  void onUserInfoRefreshSuccess(UserInfoBean bean) {}
-
-  @override
-  bool onUserInfoError(AppServerException e) {
-    //登录失效
-    if (e.code == 99991) {
-      //重新登录
-      _guestLogin();
-      return true;
-    }
+  bool onTabConfigLoadError(AppServerException e) {
     lineTextObs.value = "用户信息获取失败，请重试！(${e.message})";
     return false;
+  }
+
+  @override
+  void onTabConfigLoadSuccess() {
+    configSuccessObs.value = true;
   }
 }

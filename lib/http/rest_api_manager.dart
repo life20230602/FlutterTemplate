@@ -18,12 +18,14 @@ class ApiManager {
   static final ApiManager _instance = ApiManager._internal();
 
   //是否需要解密数据
-  static const isDecrypt = !kReleaseMode;
+  static const isDecrypt = false;
 
   void initClient(String baseUrl) {
     _defaultBaseUrl = baseUrl;
-    _retryClient =
-        RestClient(dio: BaseDio.getInstance().getRetryDio(), baseUrl: baseUrl);
+    _retryClient = RestClient(
+      dio: BaseDio.getInstance().getRetryDio(),
+      baseUrl: baseUrl,
+    );
     _defaultClient = RestClient(baseUrl: baseUrl);
   }
 
@@ -35,9 +37,15 @@ class ApiManager {
 
   ///创建请求公共参数
   static Future<Map<String, dynamic>> createRequestBody() async {
+    String deviceType = "android";
+    if (kIsWeb) {
+      deviceType = "web";
+    }
     final map = {
-      "uid": UserManager.get().getUserId(),
-      "token": UserManager.get().getToken(),
+      "device_id": await DeviceInfo.getDeviceId(),
+      "device_type": deviceType,
+      "version": await DeviceInfo.getAppVersion(),
+      "debug": "myzx",
     };
     return map;
   }

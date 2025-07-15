@@ -10,16 +10,12 @@ class HeaderInterceptor extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    Map<String, dynamic> headers = options.headers;
+    final headers = options.headers;
     final deviceId = await DeviceInfo.getDeviceId();
     final appVersion = await DeviceInfo.getAppVersion();
-    var token = UserManager.get().getToken();
-
     headers['package'] = await DeviceInfo.getPackageName();
     headers['devid'] = deviceId;
     headers['version'] = appVersion;
-    headers['token'] = token;
-    headers['appid'] = "wukongchat";
     headers['model'] = await DeviceInfo.getDeviceDesc();
     if (kIsWeb) {
       headers['os'] = 'h5'; //系统名称

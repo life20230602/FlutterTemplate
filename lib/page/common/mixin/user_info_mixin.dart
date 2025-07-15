@@ -11,17 +11,17 @@ import '../../../config/user_manager_utils.dart';
 mixin UserInfoMixin on AppGetXBaseLogic implements AppBaseNetworkLogic {
   ///刷新用户信息
   void refreshUserInfo({bool loading = false}) {
-    // var userInfo = ApiManager().getRetryClient().getUserInfo(cancelToken);
-    // if (loading) {
-    //   userInfo = bindLoading(userInfo);
-    // }
-    // userInfo.then((value) {
-    //   //更新用户缓存数据
-    //   UserManager.get().login(value);
-    //   onUserInfoRefreshSuccess(value);
-    // }).catchException(this, showErrorPage: false, onAppException: (e) {
-    //   return onUserInfoError(e);
-    // });
+    var userInfo = ApiManager().getRetryClient().getUserInfo(cancelToken,{});
+    if (loading) {
+      userInfo = bindLoading(userInfo);
+    }
+    userInfo.then((value) {
+      //更新用户缓存数据
+      UserManager.get().login(value);
+      onUserInfoRefreshSuccess(value);
+    }).catchException(this, showErrorPage: false, onAppException: (e) {
+      return onUserInfoError(e);
+    });
   }
 
   ///用户信息刷新成功

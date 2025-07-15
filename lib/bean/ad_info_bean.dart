@@ -1,65 +1,49 @@
-import 'dart:io';
+// To parse this JSON data, do
+//
+//     final adInfoBean = adInfoBeanFromJson(jsonString);
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter_se/utils/uri_utils.dart';
+import 'dart:convert';
 
-///广告数据
+AdInfoBean adInfoBeanFromJson(String str) => AdInfoBean.fromJson(json.decode(str));
+
+String adInfoBeanToJson(AdInfoBean data) => json.encode(data.toJson());
+
 class AdInfoBean {
   int id;
   String title;
-  String androidUrl;
-  String iosUrl;
-  String h5Url;
-  int jump;
-  String image;
+  String cover;
+  String action;
+  String url;
   String description;
+  int download;
 
   AdInfoBean({
     required this.id,
     required this.title,
-    required this.androidUrl,
-    required this.iosUrl,
-    required this.h5Url,
-    required this.jump,
-    required this.image,
+    required this.cover,
+    required this.action,
+    required this.url,
     required this.description,
+    required this.download,
   });
 
   factory AdInfoBean.fromJson(Map<String, dynamic> json) => AdInfoBean(
-        id: json["id"],
-        title: json["title"],
-        androidUrl: json["android_url"],
-        iosUrl: json["ios_url"],
-        h5Url: json["h5_url"],
-        jump: json["jump"],
-        image: json["image"] ?? "",
-        description: json["description"] ?? "",
-      );
+    id: json["id"],
+    title: json["title"],
+    cover: json["cover"],
+    action: json["action"],
+    url: json["url"],
+    description: json["description"],
+    download: json["download"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "title": title,
-        "android_url": androidUrl,
-        "ios_url": iosUrl,
-        "h5_url": h5Url,
-        "jump": jump,
-        "image": image,
-        "description": description,
-      };
-
-  String getOpenUrl() {
-    var url = h5Url;
-    if (!kIsWeb) {
-      if (Platform.isAndroid) {
-        url = androidUrl;
-      } else {
-        url = iosUrl;
-      }
-    }
-    return url;
-  }
-
-  void openAd() {
-    getOpenUrl().openUrl();
-  }
+    "id": id,
+    "title": title,
+    "cover": cover,
+    "action": action,
+    "url": url,
+    "description": description,
+    "download": download,
+  };
 }

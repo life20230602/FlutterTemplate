@@ -38,17 +38,12 @@ class UserManager {
 
   String getUserId() {
     _checkLogin();
-    return _userInfoBean != null ? _userInfoBean!.uid : "";
+    return _userInfoBean != null ? _userInfoBean!.id.toString() : "";
   }
 
   String getAvatar() {
     _checkLogin();
     return _userInfoBean != null ? _userInfoBean!.avatar : "";
-  }
-
-  String getToken(){
-    _checkLogin();
-    return _userInfoBean?.token ?? "";
   }
 
   UserInfoBean getUserInfo() {
